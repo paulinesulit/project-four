@@ -4,7 +4,7 @@ import Books from './components/Books.js';
 // modules
 
 // styles
-import './App.css';
+import './styles/styles.css';
 
 
 
