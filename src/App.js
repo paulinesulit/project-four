@@ -1,20 +1,21 @@
 // components
 import Books from './components/Books.js';
+import FirebaseData from "./components/FirebaseData.js";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 // modules
 
 // styles
-import './styles/styles.css';
-
-
+import "./styles/styles.css";
 
 function App() {
   return (
     <div className="App">
-      <h1>berks</h1>
-
+      <Header />
       <Books />
-
+      <FirebaseData />
+      <Footer />
     </div>
   );
 }
