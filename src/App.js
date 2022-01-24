@@ -18,7 +18,6 @@ function App() {
       <Header />
       <SearchBooks />
       <FirebaseData />
-      <ListBooks />
       <PageButton />
       <Footer />
     </div>

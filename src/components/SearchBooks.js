@@ -16,6 +16,26 @@ const SearchBooks = () => {
   const [ifError, setIfError] = useState(false);
   const apiKey = 'AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8'
 
+  useEffect( () => {
+
+    axios({
+      url: 'https://www.googleapis.com/books/v1/volumes',
+      dataResponse: 'json',
+      method: 'GET',
+      params: {
+        key: apiKey,
+        q: 'cats',
+        printType: 'books',
+        maxResults: 10,
+        startIndex: 10
+      }
+    }).then((response) => {
+      setAllBooks(response.data.items);
+      console.log(response.data.items);
+      // setIfError(false);
+    })
+  }, []);
+
   const getBooks = (userInput, categoryInput) => {
 
     axios({
@@ -26,7 +46,7 @@ const SearchBooks = () => {
         key: apiKey,
         q: `${userInput}+subject:${categoryInput}`,
         printType: 'books',
-        maxResults: 10,
+        maxResults: 20,
       }
     }).then( (response) => {
       setAllBooks(response.data.items);
