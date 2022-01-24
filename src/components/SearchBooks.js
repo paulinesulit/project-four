@@ -29,14 +29,11 @@ const SearchBooks = () => {
     }).then( (response) => {
       setAllBooks(response.data.items);
       console.log(response.data.items);
-      setIfError(false);
+      // setIfError(false);
     }).catch( (error) => {
       console.log(error);
-      if (error) {
-        setIfError(true);
-      }
+      prompt('Network Error, please refresh');
     })
-
   };
 
   // get the users input from the search field
@@ -66,7 +63,17 @@ const SearchBooks = () => {
         {
           allBooks ?
           (
-            <ListBooks />
+            <ListBooks 
+              listOfBooks={allBooks}
+            />
+          ) : (
+            null
+          )
+        }
+        {
+        allBooks === undefined ?
+          (
+            <p>No results</p>
           ) : (
             null
           )
