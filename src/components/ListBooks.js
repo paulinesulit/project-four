@@ -1,36 +1,15 @@
-// Books.js
+// SearchForm.js
 
-import axios from "axios";
-import { useEffect, useState } from "react"
+import { useState } from "react";
 
-// api key: AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8
-
-const Books = () => {
+const ListBooks = () => {
 
   const [allBooks, setAllBooks] = useState([]);
 
-  useEffect( () => {
-
-    axios({
-      url: 'https://www.googleapis.com/books/v1/volumes',
-      dataResponse: 'json',
-      method: 'GET',
-      params: {
-        key: 'AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8',
-        q: 'science fiction dogs',
-        maxResults: 40,
-      }
-    }).then( (response) => {
-      setAllBooks(response.data.items);
-      console.log(response.data.items);
-    })
-
-  }, []);
-
-  return (   
+  return (
       <ul>
         {
-          allBooks.map( (book) => {
+          allBooks.map((book) => {
             return (
               <li key={book.id}>
                 <h2>{book.volumeInfo.title}</h2>
@@ -59,7 +38,6 @@ const Books = () => {
         }
       </ul>
   )
-
 }
 
-export default Books;
+export default ListBooks;

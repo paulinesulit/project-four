@@ -1,5 +1,6 @@
 // components
-import Books from './components/Books.js';
+import SearchBooks from './components/SearchBooks.js';
+
 
 // modules
 
@@ -9,11 +10,14 @@ import './styles/styles.css';
 
 
 function App() {
+  
   return (
     <div className="App">
       <h1>berks</h1>
 
-      <Books />
+      <SearchBooks />
+
+      
 
     </div>
   );
