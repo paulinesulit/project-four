@@ -3,19 +3,30 @@ import React, { Component } from "react";
 
 const PageButton = () => {
 
-const [ bookCounter, setBookCounter ] = useState(1);
+const [ bookCounter, setBookCounter ] = useState(10);
 
 return (
-
-    (bookCounter <= 0)
-    ?  console.log('STOP')
-    :     
     <div>
-        <p>{ console.log(bookCounter)}</p>
-        <button onClick={() => setBookCounter(bookCounter - 11) }> Back</button>;
-        <button onClick={() => setBookCounter(bookCounter + 10) }> Next</button>;
-    </div> 
+    
+    {console.log(bookCounter)}
+
+    {bookCounter === 10 ? (
+        <button onClick={() => setBookCounter(bookCounter + 10)}> Next</button>
+    ) : (
+        <div>
+            <button onClick={() => setBookCounter(bookCounter - 10)}>
+            {" "}
+            Back
+            </button>
+            <button onClick={() => setBookCounter(bookCounter + 10)}>
+            {" "}
+            Next
+            </button>
+        </div>
     )}
+    </div>
+);
+};
 
 export default PageButton;
 // On forwards button have an onClick event with a function that increases pageCounter (i.e setPageCounter) by the number of books we want to skip from the first call i.e if the first page shows 10 books we want our bookCounter to go up by 10, and have our list on the next page start on the 11th book. I haven't taken a look at how the google books API does pages but im sure there's a query that we can manipulate to have our results have pages. 
