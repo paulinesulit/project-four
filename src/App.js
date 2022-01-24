@@ -1,5 +1,6 @@
 // components
-import Books from './components/Books.js';
+import SearchBooks from './components/SearchBooks.js';
+
 import FirebaseData from "./components/FirebaseData.js";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -10,10 +11,11 @@ import Footer from "./components/Footer";
 import "./styles/styles.css";
 
 function App() {
+  
   return (
     <div className="App">
       <Header />
-      <Books />
+      <SearchBooks />
       <FirebaseData />
       <Footer />
     </div>
