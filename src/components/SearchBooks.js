@@ -13,7 +13,7 @@ const SearchBooks = () => {
   const [allBooks, setAllBooks] = useState([]);
   const [userInput, setUserInput] = useState("");
   
-  const [ifError, setIfError] = useState(false);
+  // const [ifError, setIfError] = useState(false);
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
 
   const buttonClickCall = () => {
@@ -55,7 +55,7 @@ const SearchBooks = () => {
       })
       .catch((error) => {
         console.log(error);
-        prompt("Network Error, please refresh and try again");
+        alert("Try different search queries");
       });
   };
 
