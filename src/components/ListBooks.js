@@ -1,7 +1,7 @@
 // SearchForm.js
 
 const ListBooks = (props) => {
-  console.log(props);
+  // console.log(props);
   return (
       <ul>
         {
