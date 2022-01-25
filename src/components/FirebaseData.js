@@ -1,11 +1,11 @@
-import firebaseProject from "./../firebaseSetup.js";
+import BooksProject from "./../firebaseSetup.js";
 
 import { getDatabase, ref, onValue } from "firebase/database";
 import { useEffect } from "react";
 
 const FirebaseData = () => {
   useEffect(() => {
-    const database = getDatabase(firebaseProject);
+    const database = getDatabase(BooksProject);
 
     const dbRef = ref(database);
 

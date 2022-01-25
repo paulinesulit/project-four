@@ -50,8 +50,9 @@ const SearchBooks = () => {
     })
       .then((response) => {
         setAllBooks(response.data.items);
-        console.log(response.data.items);
+        // console.log(response.data.items);
         // setIfError(false);
+        console.log(bookCounter);
       })
       .catch((error) => {
         console.log(error);
@@ -105,14 +106,16 @@ const SearchBooks = () => {
       <main>
         {allBooks ? <ListBooks listOfBooks={allBooks} /> : null}
         {allBooks === undefined ? <p>No results</p> : null}
-        {bookCounter === 0 ? (
-          <button onClick={handleClickNext}> Next</button>
-        ) : (
-          <div>
-            <button onClick={handleClickBack}> Back</button>
+        {allBooks.length > 0 ? (
+          bookCounter === 0 ? (
             <button onClick={handleClickNext}> Next</button>
-          </div>
-        )}
+          ) : (
+            <div>
+              <button onClick={handleClickBack}> Back</button>
+              <button onClick={handleClickNext}> Next</button>
+            </div>
+          )
+        ) : null}
       </main>
     </div>
   );
