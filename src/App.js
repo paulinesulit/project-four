@@ -5,6 +5,7 @@ import Header from "./components/Header";
 import GenreLinks from './components/GenreLinks.js';
 import Footer from "./components/Footer";
 import { Route, Routes } from 'react-router-dom';
+import UserReadingList from './components/UserReadingList.js';
 // modules
 
 
@@ -18,6 +19,7 @@ function App() {
 
       <GenreLinks />
 
+      <UserReadingList />
       
 
       
