@@ -16,7 +16,7 @@ const SearchBooks = () => {
   const [ifError, setIfError] = useState(false);
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
 
-  useEffect(() => {
+  const buttonClickCall = () => {
     axios({
       url: "https://www.googleapis.com/books/v1/volumes",
       dataResponse: "json",
@@ -33,7 +33,7 @@ const SearchBooks = () => {
       console.log(response.data.items);
       // setIfError(false);
     });
-  }, [bookCounter]);
+  }
 
   const getBooks = (userInput) => {
     axios({
@@ -44,7 +44,8 @@ const SearchBooks = () => {
         key: apiKey,
         q: `${userInput}`,
         printType: "books",
-        maxResults: 20,
+        maxResults: 10,
+        startIndex: bookCounter
       },
     })
       .then((response) => {
@@ -68,7 +69,7 @@ const SearchBooks = () => {
   const handleFormSubmit = (event) => {
     event.preventDefault();
     getBooks(userInput);
-    setBookCounter(0);
+    setBookCounter(10);
     // setUserInput("");
     // setCategoryInput("");
   };
@@ -76,11 +77,13 @@ const SearchBooks = () => {
   const handleClickNext = () => {
     setBookCounter(bookCounter + 10);
     console.log(bookCounter);
+    buttonClickCall();
   };
 
   const handleClickBack = () => {
     setBookCounter(bookCounter - 10);
     console.log(bookCounter);
+    buttonClickCall();
   };
 
   return (
