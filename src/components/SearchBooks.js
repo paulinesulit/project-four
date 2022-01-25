@@ -12,7 +12,7 @@ const SearchBooks = () => {
 
   const [allBooks, setAllBooks] = useState([]);
   const [userInput, setUserInput] = useState("");
-  const [categoryInput, setCategoryInput] = useState("");
+  
   const [ifError, setIfError] = useState(false);
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
 
@@ -23,7 +23,7 @@ const SearchBooks = () => {
       method: "GET",
       params: {
         key: apiKey,
-        q: `${userInput}+subject:${categoryInput}`,
+        q: `${userInput}`,
         printType: "books",
         maxResults: 10,
         startIndex: bookCounter,
@@ -35,14 +35,14 @@ const SearchBooks = () => {
     });
   }, [bookCounter]);
 
-  const getBooks = (userInput, categoryInput) => {
+  const getBooks = (userInput) => {
     axios({
       url: "https://www.googleapis.com/books/v1/volumes",
       dataResponse: "json",
       method: "GET",
       params: {
         key: apiKey,
-        q: `${userInput}+subject:${categoryInput}`,
+        q: `${userInput}`,
         printType: "books",
         maxResults: 20,
       },
@@ -62,15 +62,13 @@ const SearchBooks = () => {
   const handleInput = (event) => {
     setUserInput(event.target.value);
   };
-  // get the users input from the search field
-  const handleCategoryInput = (event) => {
-    setCategoryInput(event.target.value);
-  };
+
 
   // handles form submission, calls api using userInput, resets the form to be blank
   const handleFormSubmit = (event) => {
     event.preventDefault();
-    getBooks(userInput, categoryInput);
+    getBooks(userInput);
+    setBookCounter(0);
     // setUserInput("");
     // setCategoryInput("");
   };
@@ -96,14 +94,6 @@ const SearchBooks = () => {
             onChange={handleInput}
             value={userInput}
             placeholder="Try 'Murder'"
-          />
-          <label htmlFor="">Add a genre to narrow your results: </label>
-          <input
-            type="text"
-            id="categorySearch"
-            onChange={handleCategoryInput}
-            value={categoryInput}
-            placeholder="Try 'Mystery'"
           />
           <button>Search</button>
         </form>
