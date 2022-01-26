@@ -13,11 +13,9 @@ const AddToReadingList = (props) => {
       id: book.object.id,
       title: book.object.volumeInfo.title,
       author: book.object.volumeInfo.authors,
-      description: book.object.volumeInfo.description,
-      pages: book.object.volumeInfo.pageCount,
       link: book.object.volumeInfo.previewLink,
-      jacket: book.object.volumeInfo.imageLinks.thumbnail
-    }
+      jacket: book.object.volumeInfo.imageLinks.thumbnail,
+    };
     push(unreadAddress, bookObject);
     console.log(book)
   }

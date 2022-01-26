@@ -19,15 +19,12 @@ function App() {
 
       <GenreLinks />
 
-      <UserReadingList />
-      
-
-      
       <Routes>
         <Route path="/" element={<SearchBooks />} />
+        <Route path="/mybooks" element={<UserReadingList />} />
       </Routes>
       <FirebaseData />
-      
+
       <Footer />
     </div>
   );
