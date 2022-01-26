@@ -134,7 +134,7 @@ const SearchBooks = () => {
             value={userAuthorInput}
             placeholder="Books by authors"
             aria-required="true" 
-            required
+            
           />
           <button>Search</button>
           OR
@@ -147,7 +147,7 @@ const SearchBooks = () => {
             value={userTitleInput}
             placeholder="Try 'Murder'"
             aria-required="true" 
-            required
+            
           />
           <button aria-label="Submit query for books by title">Search</button>
         </form>
