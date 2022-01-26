@@ -1,6 +1,7 @@
 // SearchForm.js
 
 import AddToReadingList from "./AddToReadingList";
+import { Link } from "react-router-dom";
 
 const ListBooks = (props) => {
   // console.log(props);
@@ -39,6 +40,11 @@ const ListBooks = (props) => {
                 >
                   Read a preview
                 </a>
+
+                <Link to={`/book/${book.id}`}>
+                  <p>See book details</p>
+                </Link>
+
                 <AddToReadingList 
                   object={book}
                   
