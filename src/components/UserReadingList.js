@@ -16,10 +16,10 @@ const UserReadingList = () => {
   const [readList, setReadList] = useState([]);
 
   const database = getDatabase(BooksProject);
-  const unreadAddress = ref(database, "unreadReadingList");
-  const finishedAddress = ref(database, "finishedReadingList");
-
+  
   useEffect(() => {
+    const unreadAddress = ref(database, "unreadReadingList");
+    const finishedAddress = ref(database, "finishedReadingList");
     onValue(unreadAddress, (response) => {
       if (response.val() === null) {
         setUnreadList([]);
