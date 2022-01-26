@@ -1,6 +1,5 @@
 // SearchForm.js
 
-import BooksProject from "../firebaseSetup";
 import AddToReadingList from "./AddToReadingList";
 
 const ListBooks = (props) => {
