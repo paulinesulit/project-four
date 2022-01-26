@@ -6,6 +6,7 @@ import GenreLinks from './components/GenreLinks.js';
 import Footer from "./components/Footer";
 import { Route, Routes } from 'react-router-dom';
 import UserReadingList from './components/UserReadingList.js';
+import BookDetails from './components/BookDetails.js';
 // modules
 
 
@@ -20,6 +21,7 @@ function App() {
       <GenreLinks />
 
       <Routes>
+        <Route path="/book/:bookId" element={<BookDetails />} />
         <Route path="/" element={<SearchBooks />} />
         <Route path="/mybooks" element={<UserReadingList />} />
       </Routes>
