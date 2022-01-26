@@ -3,6 +3,7 @@
 import BooksProject from "../firebaseSetup.js";
 import { getDatabase, ref, push } from "firebase/database";
 
+
 const AddToReadingList = (props) => {
 
   const database = getDatabase(BooksProject);
@@ -26,3 +27,6 @@ const AddToReadingList = (props) => {
 }
 
 export default AddToReadingList;
+
+
+// errors when there's no images, need ternary operators?
