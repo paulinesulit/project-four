@@ -24,8 +24,8 @@ ON SEARCH INPUT RENDER API
 // create back and forwards buttons at bottom of results 🗡🗡🗡
 // create a new state called bookCounter with initial value of 1 🗡🗡🗡
 
-// On forwards button have an onClick event with a function that increases pageCounter (i.e setPageCounter) by the number of books we want to skip from the first call i.e if the first page shows 10 books we want our bookCounter to go up by 10, and have our list on the next page start on the 11th book. I haven't taken a look at how the google books API does pages but im sure there's a query that we can manipulate to have our results have pages. 
-// On backwards button we need to have an onClick event with a function that decreases pageCounter and does an API call with the decreased pageCounter number, so an opposite function of the forward click event function
+// On forwards button have an onClick event with a function that increases pageCounter (i.e setPageCounter) by the number of books we want to skip from the first call i.e if the first page shows 10 books we want our bookCounter to go up by 10, and have our list on the next page start on the 11th book. I haven't taken a look at how the google books API does pages but im sure there's a query that we can manipulate to have our results have pages. 🗡🗡🗡
+// On backwards button we need to have an onClick event with a function that decreases pageCounter and does an API call with the decreased pageCounter number, so an opposite function of the forward click event function 🗡🗡🗡
 // both the backward and forward click functions will have api calls within them. So far we have 4 api calls being constructed not including the ones for genres
 
 API CALL RESULTS & PAGE JSX 
@@ -33,13 +33,13 @@ API CALL RESULTS & PAGE JSX
 // error handling if user's query doesnt match or no input 🗡🗡🗡
 // if error occurs and books list state becomes undefined have the jsx on the page change to reflect no books matching the results i.e ("No books found with those search terms, please alter your search and try again") 🗡🗡🗡
 // Books will also feature a link for the book preview as well as a link to a store page for purchase of the book 🗡🗡🗡
-// We have currently decided to have 40 books per page, but possibly we decrease that to 10 or 20 so we can take advantage of back and forwards buttons 
+// We have currently decided to have 40 books per page, but possibly we decrease that to 10 or 20 so we can take advantage of back and forwards buttons 🗡🗡🗡
 
 FIREBASE STORAGE/PUSHING/ONVALUE
 // create a firebase to store 'Reading List' - user can add selected books to store, once selected books are added to the reading list have an icon to display how many books are currently in reading list when reading list hasn't been toggled open 
-// 'Reading List' will be shown on the page as a toggled window and automatically update as user favourites books, this will involve using a useEffect with the favourites list in the dependency array so that everytime the reading list changes with an addition or removal the page re-renders and shows those changes
-// create a button to add/remove book to the 'Reading List', button will have an onClick function that will take the book object in it's parameters so that we can push that object to a firebase object called "Unread Reading List" 
-// create a button to list book as 'Read', this button will have an onclick event that will remove the object from the "Unread Reading List" and add the same object to "Finished Reading List" 
+// 'Reading List' will be shown on the page as a toggled window and automatically update as user favourites books, this will involve using a useEffect with the favourites list in the dependency array so that everytime the reading list changes with an addition or removal the page re-renders and shows those changes 🗡🗡🗡
+// create a button to add/remove book to the 'Reading List', button will have an onClick function that will take the book object in it's parameters so that we can push that object to a firebase object called "Unread Reading List" 🗡🗡🗡
+// create a button to list book as 'Read', this button will have an onclick event that will remove the object from the "Unread Reading List" and add the same object to "Finished Reading List"
 // create a progress bar that compares "Reading List" books with 'books read', we can do this by looking at the lengths of our unread reading list vs the finished reading list i.e something like "{finishedReadingList.length} out of {unreadReadingList.length + finishedReadingList.length} books completed" would translate to 4 out of 11 books completed. Im thinking there's a possibility of using a UI from a library to incorporate an actually loading bar but that is a deeep stretch goal. 
 
 

@@ -4,11 +4,11 @@ import FirebaseData from "./components/FirebaseData.js";
 import Header from "./components/Header";
 import GenreLinks from './components/GenreLinks.js';
 import Footer from "./components/Footer";
-import { Route, Routes } from 'react-router-dom';
-import UserReadingList from './components/UserReadingList.js';
-import BookDetails from './components/BookDetails.js';
-// modules
+import UserReadingList from "./components/UserReadingList.js";
+import BookDetails from "./components/BookDetails.js";
 
+// modules
+import { Route, Routes } from "react-router-dom";
 
 // styles
 import "./styles/styles.css";

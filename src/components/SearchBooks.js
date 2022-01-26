@@ -5,7 +5,7 @@ import ListBooks from "./ListBooks.js";
 
 // modules
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const SearchBooks = () => {
   const [bookCounter, setBookCounter] = useState(0);
@@ -14,7 +14,11 @@ const SearchBooks = () => {
   // const [userInput, setUserInput] = useState("");
   const [userAuthorInput, setUserAuthorInput] = useState("");
   const [userTitleInput, setUserTitleInput] = useState("");
-  
+
+  // useEffect(() => {
+  //   console.log("useEffect", bookCounter);
+  // }, [bookCounter]);
+
   // const [ifError, setIfError] = useState(false);
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
 
@@ -35,7 +39,7 @@ const SearchBooks = () => {
       console.log(response.data.items);
       // setIfError(false);
     });
-  }
+  };
 
   const getBooksAuthor = (userAuthorInput) => {
     axios({
@@ -47,7 +51,7 @@ const SearchBooks = () => {
         q: `inauthor:${userAuthorInput}`,
         printType: "books",
         maxResults: 10,
-        startIndex: bookCounter
+        startIndex: bookCounter,
       },
     })
       .then((response) => {
@@ -72,10 +76,11 @@ const SearchBooks = () => {
         q: `intitle:${userTitleInput}`,
         printType: "books",
         maxResults: 10,
-        startIndex: bookCounter
+        startIndex: bookCounter,
       },
     })
       .then((response) => {
+        console.log(response.data.items);
         setAllBooks(response.data.items);
         // console.log(response.data.items);
         // setIfError(false);
@@ -83,7 +88,7 @@ const SearchBooks = () => {
       })
       .catch((error) => {
         console.log(error);
-        alert("Try different search queries");
+        // alert("Try different search queries");
       });
   };
 
@@ -95,30 +100,28 @@ const SearchBooks = () => {
     setUserTitleInput(event.target.value);
   };
 
-
-
   // handles form submission, calls api using userInput, resets the form to be blank
   const handleFormSubmit = (event) => {
     event.preventDefault();
     if (userAuthorInput === "") {
       getBooksTitle(userTitleInput);
     } else {
-    getBooksAuthor(userAuthorInput);
+      getBooksAuthor(userAuthorInput);
     }
-    setBookCounter(10);
+    setBookCounter(0);
     // setUserInput("");
     // setCategoryInput("");
   };
 
   const handleClickNext = () => {
     setBookCounter(bookCounter + 10);
-    console.log(bookCounter);
+    // console.log(bookCounter);
     buttonClickCall();
   };
 
   const handleClickBack = () => {
     setBookCounter(bookCounter - 10);
-    console.log(bookCounter);
+    // console.log(bookCounter);
     buttonClickCall();
   };
 
@@ -133,11 +136,8 @@ const SearchBooks = () => {
             onChange={handleInputAuthor}
             value={userAuthorInput}
             placeholder="Books by authors"
-            aria-required="true" 
-            
+            aria-required="true"
           />
-          <button>Search</button>
-          OR
           <button aria-label="Submit query for books by author">Search</button>
           <label htmlFor="search">OR Search by title: </label>
           <input
@@ -146,8 +146,7 @@ const SearchBooks = () => {
             onChange={handleInputTitle}
             value={userTitleInput}
             placeholder="Try 'Murder'"
-            aria-required="true" 
-            
+            aria-required="true"
           />
           <button aria-label="Submit query for books by title">Search</button>
         </form>
@@ -155,14 +154,27 @@ const SearchBooks = () => {
 
       <main>
         {allBooks ? <ListBooks listOfBooks={allBooks} /> : null}
-        {allBooks === undefined ? <p>No results</p> : null}
-        {allBooks.length > 0 ? (
+        {allBooks === undefined ? (
+          <p>No results</p>
+        ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
             <button onClick={handleClickNext}> Next</button>
           ) : (
             <div>
-              <button onClick={handleClickBack} aria-label="Go to the previous page of books"> Back</button>
-              <button onClick={handleClickNext}  aria-label="Go to the next page of books"> Next</button>
+              <button
+                onClick={handleClickBack}
+                aria-label="Go to the previous page of books"
+              >
+                {" "}
+                Back
+              </button>
+              <button
+                onClick={handleClickNext}
+                aria-label="Go to the next page of books"
+              >
+                {" "}
+                Next
+              </button>
             </div>
           )
         ) : null}
