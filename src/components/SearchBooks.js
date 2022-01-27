@@ -9,9 +9,9 @@ import { useState } from "react";
 
 const SearchBooks = () => {
   const [bookCounter, setBookCounter] = useState(0);
-
   const [allBooks, setAllBooks] = useState([]);
-  // const [userInput, setUserInput] = useState("");
+  const [firstInputDisabled, setFirstInputDisabled] = useState(false);
+  const [secondInputDisabled, setSecondInputDisabled] = useState(false);
   const [userAuthorInput, setUserAuthorInput] = useState("");
   const [userTitleInput, setUserTitleInput] = useState("");
 
@@ -95,9 +95,19 @@ const SearchBooks = () => {
   // get the users input from the search field
   const handleInputAuthor = (event) => {
     setUserAuthorInput(event.target.value);
+    if (event.target.value.length > 0) {
+      setSecondInputDisabled(true)
+    } else {
+      setSecondInputDisabled(false)
+    }
   };
   const handleInputTitle = (event) => {
     setUserTitleInput(event.target.value);
+    if (event.target.value.length > 0) {
+      setFirstInputDisabled(true)
+    } else {
+      setFirstInputDisabled(false)
+    }
   };
 
   // handles form submission, calls api using userInput, resets the form to be blank
@@ -125,6 +135,7 @@ const SearchBooks = () => {
     buttonClickCall();
   };
 
+
   return (
     <div>
       <section>
@@ -137,6 +148,7 @@ const SearchBooks = () => {
             value={userAuthorInput}
             placeholder="Books by authors"
             aria-required="true"
+            disabled={firstInputDisabled}
           />
           <button aria-label="Submit query for books by author">Search</button>
           <label htmlFor="search">OR Search by title: </label>
@@ -147,6 +159,7 @@ const SearchBooks = () => {
             value={userTitleInput}
             placeholder="Try 'Murder'"
             aria-required="true"
+            disabled={secondInputDisabled}
           />
           <button aria-label="Submit query for books by title">Search</button>
         </form>
