@@ -1,10 +1,14 @@
 @import "setup";
+@import "header-footer";
+@import "genre-links";
 
+$murder-red: #FF1D25;
+$blue: #3FA9F5;
 
 body {
   background-color: papayawhip;
 }
 
-.fa-layers.fa-fw {
-  font-size: 3rem;
+li {
+  list-style: none;
 }

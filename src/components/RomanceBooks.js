@@ -1,5 +1,9 @@
 // RomanceBooks.js
 
+// components
+import AddToReadingList from "./AddToReadingList.js";
+import GenreLinks from "./GenreLinks.js";
+
 // modules
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -27,6 +31,10 @@ const RomanceBooks = () => {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
   return (
     <div>
@@ -49,10 +57,13 @@ const RomanceBooks = () => {
                 {romanceBook.volumeInfo.averageRating === undefined ? <h4>No rating available</h4> : (
                   <h4>{`${romanceBook.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
+
+                <AddToReadingList object={romanceBook} />
               </li>
             );
           })
         }
+        <GenreLinks />
       </ul>
     </div>
   )

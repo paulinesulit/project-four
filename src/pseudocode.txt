@@ -36,11 +36,11 @@ API CALL RESULTS & PAGE JSX
 // We have currently decided to have 40 books per page, but possibly we decrease that to 10 or 20 so we can take advantage of back and forwards buttons 🗡🗡🗡
 
 FIREBASE STORAGE/PUSHING/ONVALUE
-// create a firebase to store 'Reading List' - user can add selected books to store, once selected books are added to the reading list have an icon to display how many books are currently in reading list when reading list hasn't been toggled open 
+// create a firebase to store 'Reading List' - user can add selected books to store, once selected books are added to the reading list have an icon to display how many books are currently in reading list when reading list hasn't been toggled open 🗡🗡🗡
 // 'Reading List' will be shown on the page as a toggled window and automatically update as user favourites books, this will involve using a useEffect with the favourites list in the dependency array so that everytime the reading list changes with an addition or removal the page re-renders and shows those changes 🗡🗡🗡
 // create a button to add/remove book to the 'Reading List', button will have an onClick function that will take the book object in it's parameters so that we can push that object to a firebase object called "Unread Reading List" 🗡🗡🗡
-// create a button to list book as 'Read', this button will have an onclick event that will remove the object from the "Unread Reading List" and add the same object to "Finished Reading List"
-// create a progress bar that compares "Reading List" books with 'books read', we can do this by looking at the lengths of our unread reading list vs the finished reading list i.e something like "{finishedReadingList.length} out of {unreadReadingList.length + finishedReadingList.length} books completed" would translate to 4 out of 11 books completed. Im thinking there's a possibility of using a UI from a library to incorporate an actually loading bar but that is a deeep stretch goal. 
+// create a button to list book as 'Read', this button will have an onclick event that will remove the object from the "Unread Reading List" and add the same object to "Finished Reading List" 🗡🗡🗡
+// create a progress bar that compares "Reading List" books with 'books read', we can do this by looking at the lengths of our unread reading list vs the finished reading list i.e something like "{finishedReadingList.length} out of {unreadReadingList.length + finishedReadingList.length} books completed" would translate to 4 out of 11 books completed. Im thinking there's a possibility of using a UI from a library to incorporate an actually loading bar but that is a deeep stretch goal. 🗡🗡🗡
 
 
 - Main Landing Page

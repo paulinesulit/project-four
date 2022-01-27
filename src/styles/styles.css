@@ -235,10 +235,33 @@ html {
   overflow: hidden;
 }
 
-body {
-  background-color: papayawhip;
+.logo {
+  max-width: 250px;
+  width: 250px;
+}
+
+.logo img {
+  max-width: 250px;
 }
 
 .fa-layers.fa-fw {
   font-size: 3rem;
+}
+
+.genreLinks li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+body {
+  background-color: papayawhip;
+}
+
+li {
+  list-style: none;
 }
