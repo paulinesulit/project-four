@@ -138,7 +138,7 @@ const SearchBooks = () => {
 
 
   return (
-    <div className="wrapper">
+    <div>
       <section className="searchContainer">
         <form onSubmit={handleFormSubmit}>
           <label htmlFor="search">Search by author: </label>

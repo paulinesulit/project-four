@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap%27');
-
-
 @import "partials/setup";
 @import "partials/header-footer";
 @import "partials/genre-links";
@@ -10,9 +7,10 @@
 
 $murder-red: #FF1D25;
 $blue: #3FA9F5;
+$charcoal: #222121;
 
 body {
-  background-color: papayawhip;
+  background-color: white;
 }
 
 li {

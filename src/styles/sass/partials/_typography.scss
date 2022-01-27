@@ -7,6 +7,24 @@ h1, h2, h3, label {
     font-weight: 600;
 }
 
+.banner {
+  h1,
+  p {
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+    max-width: 50ch;
+    margin: 20px auto 30px auto;
+  }
+
+}
+
 p, a, button, input {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
@@ -15,8 +33,10 @@ p, a, button, input {
 a {
     text-decoration: none;
     color: black;
-    &:hover {
-        color: #0fb9fa;
+    
+    &:hover,
+    &:focus {
+        color: $blue;
     }
 }
 
