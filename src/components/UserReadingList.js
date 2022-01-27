@@ -10,10 +10,12 @@ import {
   get,
 } from "firebase/database";
 import { useEffect, useState } from "react";
+import ProgressBar from 'react-bootstrap/ProgressBar'
 
 const UserReadingList = () => {
   const [unreadList, setUnreadList] = useState([]);
   const [readList, setReadList] = useState([]);
+  const [userProgress, setUserProgress] = useState(0)
 
   const database = getDatabase(BooksProject);
   const unreadAddress = ref(database, "unreadReadingList");
@@ -64,8 +66,18 @@ const UserReadingList = () => {
     remove(dbBookAddress);
   };
 
+  useEffect(() =>{
+    const totalList = unreadList.length + readList.length
+    const progress =  (readList.length / totalList) * 100
+    setUserProgress(progress)
+    console.log(unreadList)
+  }, [unreadList])
+
+
   return (
     <ul>
+      <p>Progress: {userProgress}%</p>
+      <ProgressBar now={userProgress} />
       {unreadList.map((book) => {
         return (
           <li key={book[1].id}>
