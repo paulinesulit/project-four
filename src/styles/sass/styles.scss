@@ -1,12 +1,16 @@
-@import "setup";
-@import "header-footer";
-@import "genre-links";
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap%27');
+
+
+@import "partials/setup";
+@import "partials/header-footer";
+@import "partials/genre-links";
+@import "partials/search";
+@import "partials/typography";
+
 
 $murder-red: #FF1D25;
 $blue: #3FA9F5;
-body, html {
-  font-size: 125%;
-}
+
 body {
   background-color: papayawhip;
 }
@@ -16,7 +20,7 @@ li {
 }
 
 .wrapper {
-  width: 80%;
+  width: 85%;
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -29,3 +33,4 @@ li {
   background: none;
   font-size: 3rem;
 }
+

@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap%27");
 html {
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
@@ -253,14 +254,37 @@ html {
   font-size: 3rem;
 }
 
+header ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  padding: 20px 0 40px 0;
+}
+header ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 footer {
   background: black;
-  position: relative;
+  position: fixed;
   bottom: 0;
-}
-footer p, footer a {
-  text-align: center;
-  color: white;
+  width: 100%;
+  left: 0;
 }
 
 ul.genreLinks {
@@ -271,6 +295,8 @@ ul.genreLinks {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  padding: 50px;
+  margin-bottom: 80px;
 }
 ul.genreLinks li h3 {
   text-align: center;
@@ -279,8 +305,64 @@ ul.genreLinks li img {
   max-width: 100%;
 }
 
+.searchContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.searchContainer form {
+  text-align: center;
+}
+.searchContainer form label {
+  display: block;
+}
+.searchContainer form p {
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin: 15px;
+}
+.searchContainer form button {
+  border: 1px solid black;
+  background-color: red;
+  padding: 10px;
+  color: white;
+}
+.searchContainer form button:hover {
+  background-color: #0fb9fa;
+}
+.searchContainer form input {
+  padding: 10px;
+  border: 1px solid black;
+}
+
 body, html {
   font-size: 125%;
+}
+
+h1, h2, h3, label {
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+p, a, button, input {
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+a:hover {
+  color: #0fb9fa;
+}
+
+footer a, footer p {
+  color: white;
+  text-align: center;
 }
 
 body {
@@ -292,7 +374,7 @@ li {
 }
 
 .wrapper {
-  width: 80%;
+  width: 85%;
   max-width: 1200px;
   margin: 0 auto;
 }
