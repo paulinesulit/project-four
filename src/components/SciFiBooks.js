@@ -8,6 +8,7 @@ import GenreLinks from "./GenreLinks.js";
 //modules
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 const SciFiBooks = () => {
 
@@ -58,6 +59,10 @@ const SciFiBooks = () => {
                 {sciFiBook.volumeInfo.averageRating === undefined ? <h4>No rating available</h4> : (
                   <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
+
+                <Link to={`/book/${sciFiBook.id}`}>
+                  <p aria-label="Click to see book details">See book details</p>
+                </Link>
 
                 <AddToReadingList object={sciFiBook} />
               </li>

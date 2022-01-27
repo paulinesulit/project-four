@@ -8,11 +8,10 @@ import { Link } from "react-router-dom";
 const GenreLinks = () => {
 
   return (
-    <div>
-      <nav className="genreLinks">
-          <ul>
+    <div className="wrapper">
+      <nav>
+        <ul className="genreLinks">
             <li>
-              
               <Link to='/genre/murder'>
                 <img src="/assets/books-murder.png" alt="Murder themed icon" />
                 <h3>Murder</h3>

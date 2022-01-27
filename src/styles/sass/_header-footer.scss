@@ -13,3 +13,13 @@ $blue: #3FA9F5;
 .fa-layers.fa-fw {
   font-size: 3rem;
 }
+
+footer {
+  background: black;
+  p, a {
+    text-align: center;
+    color: white;
+  }
+  position: relative;
+  bottom: 0;
+}

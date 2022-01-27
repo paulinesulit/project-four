@@ -10,7 +10,8 @@ import {
   get,
 } from "firebase/database";
 import { useEffect, useState } from "react";
-import ProgressBar from 'react-bootstrap/ProgressBar'
+import ProgressBar from 'react-bootstrap/ProgressBar';
+import ScrollTop from "./ScrollTop.js";
 
 const UserReadingList = () => {
   const [unreadList, setUnreadList] = useState([]);
@@ -101,7 +102,7 @@ const UserReadingList = () => {
       <ul>
         {unreadList.map((book) => {
           return (
-            <li key={book[1].id}>
+            <li key={book[0]}>
               <h2>{book[1].title}</h2>
               {book[1].jacket === undefined ? null : (
                 <img src={book[1].jacket} alt={book[1].title} />
@@ -143,6 +144,7 @@ const UserReadingList = () => {
           );
         })}
       </ul>
+      <ScrollTop />
     </div>
   );
 };
