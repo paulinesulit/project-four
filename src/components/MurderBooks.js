@@ -1,13 +1,19 @@
 // MurderBooks.js
 
+// components
+import AddToReadingList from "./AddToReadingList.js";
+
 // modules
 import { useEffect, useState } from "react";
 import axios from "axios";
+import GenreLinks from "./GenreLinks.js";
 
 const MurderBooks = () => {
 
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
   const [bookGenre, setBookGenre] = useState([]);
+
+  console.log('wut');
 
   useEffect(() => {
     axios({
@@ -26,6 +32,10 @@ const MurderBooks = () => {
       // setIfError(false);
     });
   }, []);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
 
 
   return (
@@ -49,10 +59,13 @@ const MurderBooks = () => {
                 {murderBook.volumeInfo.averageRating === undefined ? <h4>No rating available</h4> : (
                   <h4>{`${murderBook.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
+
+                <AddToReadingList object={murderBook} />
               </li>
             );
           })
         }
+        <GenreLinks />
       </ul>
     </div>
   )

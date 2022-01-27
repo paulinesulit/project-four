@@ -18,25 +18,33 @@ const UserReadingList = () => {
   const [userProgress, setUserProgress] = useState(0)
 
   const database = getDatabase(BooksProject);
- 
+
 
   useEffect(() => {
     const unreadAddress = ref(database, "unreadReadingList");
     const finishedAddress = ref(database, "finishedReadingList");
-    onValue(unreadAddress, (response) => {
+
+    const stopUnreadSubFunction = onValue(unreadAddress, (response) => {
       if (response.val() === null) {
         setUnreadList([]);
       } else {
         setUnreadList(Object.entries(response.val()));
       }
-    },[])
-    onValue(finishedAddress, (response) => {
+    })
+
+    const stopFinishedSubFunction = onValue(finishedAddress, (response) => {
       if (response.val() === null) {
         setReadList([]);
       } else {
         setReadList(Object.entries(response.val()));
       }
-    },[])
+    })
+    return () => {
+      console.log('unmount');
+      stopFinishedSubFunction();
+      stopUnreadSubFunction();
+    }
+
   }, [database]);
 
   const handleRemove = (book) => {
@@ -65,66 +73,77 @@ const UserReadingList = () => {
 
     remove(dbBookAddress);
   };
-
   
-  useEffect(() =>{
+  useEffect(() => {
     const totalList = unreadList.length + readList.length
-    const progress = (readList.length / totalList) * 100
-    setUserProgress(progress.toFixed(0))
+    if (readList.length === 0 && unreadList.length === 0) {
+      setUserProgress(0)
+    } else {
+      const progress = (readList.length / totalList) * 100
+      setUserProgress(progress.toFixed(0))
+    }
   }, [readList.length, unreadList.length])
 
+  const resetList = () => {
+    const finishedAddress = ref(database, "finishedReadingList");
+    remove(finishedAddress);
+    const dbBookAddress = ref(database, "unreadReadingList");    
+    remove(dbBookAddress);
+  }
 
   return (
-    <ul>
-      <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
-      <ProgressBar animated now={userProgress} />
-      {unreadList.map((book) => {
-        return (
-          <li key={book[1].id}>
-            <h2>{book[1].title}</h2>
-            {book[1].jacket === undefined ? null : (
-              <img src={book[1].jacket} alt={book[1].title} />
-            )}
-            {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
+    <div>
+      
+        <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
+        <ProgressBar animated now={userProgress} />
 
-            <button aria-label="Remove book from reading list"
-              onClick={() => {
-                handleRemove(book[0]);
-              }}
-            >
-              Remove
-            </button>
-            <button aria-label="List book as read on your reading list"
-              onClick={() => {
-                handleRead(book[0]);
-              }}
-            >
-              Read
-            </button>
-          </li>
-        );
-      })}
-
-      {readList.map((book) => {
-        return (
-          <li key={book}>
-            <h2>{book[1].title}</h2>
-            {book[1].jacket === undefined ? null : (
-              <img src={book[1].jacket} alt={book[1].title} />
-            )}
-            {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-
-            <button  aria-label="Remove read book from list"
-              onClick={() => {
-                handleRemoveRead(book[0]);
-              }}
-            >
-              Remove
-            </button>
-          </li>
-        );
-      })}
-    </ul>
+        <button onClick={resetList}>Clear My Reading List</button>
+      <ul>
+        {unreadList.map((book) => {
+          return (
+            <li key={book[1].id}>
+              <h2>{book[1].title}</h2>
+              {book[1].jacket === undefined ? null : (
+                <img src={book[1].jacket} alt={book[1].title} />
+              )}
+              {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
+              <button aria-label="Remove book from reading list"
+                onClick={() => {
+                  handleRemove(book[0]);
+                }}
+              >
+                Remove
+              </button>
+              <button aria-label="List book as read on your reading list"
+                onClick={() => {
+                  handleRead(book[0]);
+                }}
+              >
+                Read
+              </button>
+            </li>
+          );
+        })}
+        {readList.map((book) => {
+          return (
+            <li key={book}>
+              <h2>{book[1].title}</h2>
+              {book[1].jacket === undefined ? null : (
+                <img src={book[1].jacket} alt={book[1].title} />
+              )}
+              {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
+              <button  aria-label="Remove read book from list"
+                onClick={() => {
+                  handleRemoveRead(book[0]);
+                }}
+              >
+                Remove
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

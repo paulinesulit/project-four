@@ -1,5 +1,9 @@
 // SciFiBooks.js
 
+// components
+import AddToReadingList from "./AddToReadingList.js";
+import GenreLinks from "./GenreLinks.js";
+
 
 //modules
 import { useEffect, useState } from "react";
@@ -28,6 +32,10 @@ const SciFiBooks = () => {
     });
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
 
   return (
     <div>
@@ -50,10 +58,13 @@ const SciFiBooks = () => {
                 {sciFiBook.volumeInfo.averageRating === undefined ? <h4>No rating available</h4> : (
                   <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
+
+                <AddToReadingList object={sciFiBook} />
               </li>
             );
           })
         }
+        <GenreLinks />
       </ul>
     </div>
   )
