@@ -98,7 +98,7 @@ const UserReadingList = () => {
         <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
         <ProgressBar animated now={userProgress} />
 
-        <button onClick={resetList}>Clear My Reading List</button>
+        <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
       <ul>
         {unreadList.map((book) => {
           return (
