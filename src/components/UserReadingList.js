@@ -18,25 +18,25 @@ const UserReadingList = () => {
   const [userProgress, setUserProgress] = useState(0)
 
   const database = getDatabase(BooksProject);
-  const unreadAddress = ref(database, "unreadReadingList");
-  const finishedAddress = ref(database, "finishedReadingList");
+ 
 
   useEffect(() => {
+    const unreadAddress = ref(database, "unreadReadingList");
+    const finishedAddress = ref(database, "finishedReadingList");
     onValue(unreadAddress, (response) => {
       if (response.val() === null) {
         setUnreadList([]);
       } else {
         setUnreadList(Object.entries(response.val()));
       }
-    });
+    },[])
     onValue(finishedAddress, (response) => {
       if (response.val() === null) {
         setReadList([]);
       } else {
-        console.log(response.val());
         setReadList(Object.entries(response.val()));
       }
-    });
+    },[])
   }, [database]);
 
   const handleRemove = (book) => {
@@ -66,12 +66,12 @@ const UserReadingList = () => {
     remove(dbBookAddress);
   };
 
+  
   useEffect(() =>{
     const totalList = unreadList.length + readList.length
-    const progress =  (readList.length / totalList) * 100
-    setUserProgress(progress)
-    console.log(unreadList)
-  }, [unreadList])
+    const progress = (readList.length / totalList) * 100
+    setUserProgress(progress.toFixed(0))
+  }, [readList.length, unreadList.length])
 
 
   return (

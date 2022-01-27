@@ -5,7 +5,7 @@ import ListBooks from "./ListBooks.js";
 
 // modules
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 const SearchBooks = () => {
   const [bookCounter, setBookCounter] = useState(0);
