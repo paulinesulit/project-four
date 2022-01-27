@@ -77,7 +77,7 @@ const UserReadingList = () => {
   return (
     <ul>
       <p>Progress: {userProgress}%</p>
-      <ProgressBar now={userProgress} />
+      <ProgressBar animated now={userProgress} />
       {unreadList.map((book) => {
         return (
           <li key={book[1].id}>
