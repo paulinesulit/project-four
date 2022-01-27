@@ -202,6 +202,11 @@ template {
   display: none;
 }
 
+h1, h2, h3, h4, h5, h6, p, a, ul {
+  margin: 0;
+  padding: 0;
+}
+
 .clearfix:after {
   visibility: hidden;
   display: block;
@@ -248,14 +253,34 @@ html {
   font-size: 3rem;
 }
 
-.genreLinks li {
+footer {
+  background: black;
+  position: relative;
+  bottom: 0;
+}
+footer p, footer a {
+  text-align: center;
+  color: white;
+}
+
+ul.genreLinks {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+ul.genreLinks li h3 {
+  text-align: center;
+}
+ul.genreLinks li img {
+  max-width: 100%;
+}
+
+body, html {
+  font-size: 125%;
 }
 
 body {
@@ -264,4 +289,20 @@ body {
 
 li {
   list-style: none;
+}
+
+.wrapper {
+  width: 80%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
 }

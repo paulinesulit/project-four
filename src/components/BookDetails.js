@@ -1,9 +1,12 @@
 // BookDetails.js
 
+//components
+import AddFromDetails from "./AddFromDetails.js";
 //modules
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+
 
 
 const BookDetails = () => {
@@ -62,6 +65,7 @@ const BookDetails = () => {
       >
         Read a preview
       </a>
+      <AddFromDetails object={book}/>
     </div>
 
   )
