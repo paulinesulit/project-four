@@ -7,6 +7,7 @@ import AddToReadingList from "./AddToReadingList.js";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import GenreLinks from "./GenreLinks.js";
+import { Link } from 'react-router-dom';
 
 const MurderBooks = () => {
 
@@ -60,7 +61,12 @@ const MurderBooks = () => {
                   <h4>{`${murderBook.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
 
+                <Link to={`/book/${murderBook.id}`}>
+                  <p aria-label="Click to see book details">See book details</p>
+                </Link>
+
                 <AddToReadingList object={murderBook} />
+
               </li>
             );
           })

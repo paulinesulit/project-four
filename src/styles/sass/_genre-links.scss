@@ -1,9 +1,15 @@
 $murder-red: #FF1D25;
 $blue: #3FA9F5;
 
-.genreLinks li {
+ul.genreLinks {
   display: flex;
-  flex-direction: column;
-
-
+  flex-direction: row;
+  li {
+    h3{
+      text-align: center;
+    }
+    img {
+      max-width: 100%;
+    }
+  }
 }
