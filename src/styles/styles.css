@@ -326,12 +326,12 @@ ul.genreLinks li img {
 }
 .searchContainer form button {
   border: 1px solid black;
-  background-color: red;
+  background-color: #FF1D25;
   padding: 10px;
   color: white;
 }
 .searchContainer form button:hover {
-  background-color: #0fb9fa;
+  background-color: #3FA9F5;
 }
 .searchContainer form input {
   padding: 10px;
@@ -357,7 +357,7 @@ a {
   color: black;
 }
 a:hover {
-  color: #0fb9fa;
+  color: #3FA9F5;
 }
 
 footer a, footer p {

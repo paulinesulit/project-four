@@ -2,14 +2,11 @@
 
 
 @import "partials/setup";
+@import "partials/variables";
 @import "partials/header-footer";
 @import "partials/genre-links";
 @import "partials/search";
 @import "partials/typography";
-
-
-$murder-red: #FF1D25;
-$blue: #3FA9F5;
 
 body {
   background-color: papayawhip;
