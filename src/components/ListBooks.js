@@ -47,12 +47,13 @@ const ListBooks = (props) => {
                       href={book.volumeInfo.previewLink}
                       target="_blank"
                       rel="noreferrer"
+                      aria-label="Click to read a preview of the book"
                     >
                       Read a preview
                     </a>
 
                     <Link to={`/book/${book.id}`}>
-                      <p>See book details</p>
+                      <p aria-label="Click to see book details">See book details</p>
                     </Link>
 
                     <AddToReadingList object={book} />

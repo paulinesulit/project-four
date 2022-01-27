@@ -41,15 +41,15 @@ const [unreadList, setUnreadList] = useState([]);
     return (
 <div>
     <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faBook} className="bookIcon" />
-        <span className="fa-layers-counter" style={{ background: "Tomato" }}>
+        <FontAwesomeIcon icon={faBook} className="bookIcon" aria-hidden="true"/>
+        <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
         {unreadList.length}
         </span>
         </span>
 
         <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faBookOpen} className="bookIcon" />
-        <span className="fa-layers-counter" style={{ background: "Tomato" }}>
+        <FontAwesomeIcon icon={faBookOpen} className="bookIcon"  aria-hidden="true"/>
+        <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
         {readList.length}
         </span>
     </span>

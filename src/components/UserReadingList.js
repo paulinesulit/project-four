@@ -76,7 +76,7 @@ const UserReadingList = () => {
 
   return (
     <ul>
-      <p>Progress: {userProgress}%</p>
+      <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
       <ProgressBar animated now={userProgress} />
       {unreadList.map((book) => {
         return (
@@ -87,14 +87,14 @@ const UserReadingList = () => {
             )}
             {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
 
-            <button
+            <button aria-label="Remove book from reading list"
               onClick={() => {
                 handleRemove(book[0]);
               }}
             >
               Remove
             </button>
-            <button
+            <button aria-label="List book as read on your reading list"
               onClick={() => {
                 handleRead(book[0]);
               }}
@@ -114,7 +114,7 @@ const UserReadingList = () => {
             )}
             {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
 
-            <button
+            <button  aria-label="Remove read book from list"
               onClick={() => {
                 handleRemoveRead(book[0]);
               }}

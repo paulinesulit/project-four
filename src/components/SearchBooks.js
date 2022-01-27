@@ -171,7 +171,7 @@ const SearchBooks = () => {
           <p>No results</p>
         ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
-            <button onClick={handleClickNext}> Next</button>
+            <button onClick={handleClickNext} aria-label="Go to the next page of books"> Next</button>
           ) : (
             <div>
               <button

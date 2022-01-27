@@ -35,10 +35,10 @@ const GenreLinks = () => {
         </nav>
 
         <Routes>
-          <Route path="/genre/murder" element={ <MurderBooks /> }/>
-          <Route path="/genre/sci-fi" element={<SciFiBooks />} />
-          <Route path="/genre/fantasy" element={<FantasyBooks />} />
-        <Route path="/genre/romance" element={<RomanceBooks />} />
+          <Route path="/genre/murder" element={ <MurderBooks /> } aria-label="Link to murder themed books" />
+          <Route path="/genre/sci-fi" element={<SciFiBooks />}  aria-label="Link to sci-fi themed books"  />
+          <Route path="/genre/fantasy" element={<FantasyBooks />}  aria-label="Link to fantasy themed books" />
+        <Route path="/genre/romance" element={<RomanceBooks />} aria-label="Link to romance themed books" />
         </Routes>
 
     </div>

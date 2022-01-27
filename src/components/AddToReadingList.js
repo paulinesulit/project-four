@@ -22,7 +22,7 @@ const AddToReadingList = (props) => {
   }
   
   return (
-    <button onClick={ () => { addBook(props) }}>Add to my reading list</button>
+    <button onClick={ () => { addBook(props) }} aria-label="Add book to your reading list">Add to my reading list</button>
   )
 }
 
