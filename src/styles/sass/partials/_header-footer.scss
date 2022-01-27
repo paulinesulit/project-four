@@ -1,0 +1,35 @@
+$murder-red: #FF1D25;
+$blue: #3FA9F5;
+
+.logo {
+  max-width: 250px;
+  width: 250px;
+}
+
+.logo img {
+  max-width: 250px;
+}
+
+.fa-layers.fa-fw {
+  font-size: 3rem;
+}
+
+header ul {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 0 40px 0;
+  li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+footer {
+  background: black;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  left: 0;
+}

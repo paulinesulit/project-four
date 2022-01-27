@@ -1,0 +1,28 @@
+body, html {
+    font-size: 125%;
+}
+
+h1, h2, h3, label {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+}
+
+p, a, button, input {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+    &:hover {
+        color: #0fb9fa;
+    }
+}
+
+footer {
+    a, p {
+    color: white;
+    text-align: center;
+    }
+}

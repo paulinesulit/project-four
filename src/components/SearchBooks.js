@@ -138,8 +138,8 @@ const SearchBooks = () => {
 
 
   return (
-    <div>
-      <section>
+    <div className="wrapper">
+      <section className="searchContainer">
         <form onSubmit={handleFormSubmit}>
           <label htmlFor="search">Search by author: </label>
           <input
@@ -152,7 +152,8 @@ const SearchBooks = () => {
             disabled={firstInputDisabled}
           />
           <button aria-label="Submit query for books by author">Search</button>
-          <label htmlFor="search">OR Search by title: </label>
+          <p>OR</p>
+          <label htmlFor="search">Search by title: </label>
           <input
             type="text"
             id="search"
@@ -172,7 +173,13 @@ const SearchBooks = () => {
           <p>No results</p>
         ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
-            <button onClick={handleClickNext} aria-label="Go to the next page of books"> Next</button>
+            <button
+              onClick={handleClickNext}
+              aria-label="Go to the next page of books"
+            >
+              {" "}
+              Next
+            </button>
           ) : (
             <div>
               <button
