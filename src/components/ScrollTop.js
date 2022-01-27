@@ -12,7 +12,7 @@ const ScrollTop = () => {
     
     return(
         <div>
-            <button className="scrollTopBtn" onClick={scrollTopFunction}> <FontAwesomeIcon icon={faArrowAltCircleUp}/></button>
+            <button className="scrollTopBtn" onClick={scrollTopFunction} aria-label="Scroll to the top of the page"> <FontAwesomeIcon icon={faArrowAltCircleUp}/></button>
         </div>
     )
 }
