@@ -445,11 +445,29 @@ ul.genreLinks li img {
   font-size: 18px;
 }
 
+a.previewDetailLink,
+p.previewDetailLink {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: #3FA9F5;
+  margin: 10px 0;
+}
+a.previewDetailLink:hover, a.previewDetailLink:focus,
+p.previewDetailLink:hover,
+p.previewDetailLink:focus {
+  color: #0c8eeb;
+}
+
 .errorNoResults {
   text-align: center;
-  color: red;
+  color: #FF1D25;
   border: 2px solid black;
   font-weight: 600;
+}
+
+.paginationButtons {
+  text-align: center;
 }
 
 body, html {
@@ -562,16 +580,6 @@ footer a, footer p {
   color: gray;
 }
 
-.scrollTopBtn {
-  position: fixed;
-  display: block;
-  bottom: 40px;
-  right: 40px;
-  border: none;
-  background: none;
-  font-size: 3rem;
-}
-
 .addButton {
   margin: 2% auto;
   border: 1px solid #3FA9F5;
@@ -612,6 +620,17 @@ li {
   width: 85%;
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
+  color: #FF1D25;
 }
 
 @media (max-width: 1050px) {

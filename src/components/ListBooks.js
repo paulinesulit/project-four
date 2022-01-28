@@ -30,22 +30,8 @@ const ListBooks = (props) => {
                 ) : (
                   <h4 className="listBooksRating">{`${book.volumeInfo.averageRating} out of 5 stars`}</h4>
                 )}
-                {/* {book.volumeInfo.pageCount === undefined ? (
-                      <h5>Page count unknown</h5>
-                    ) : (
-                      <h5>{`${book.volumeInfo.pageCount} pages`}</h5>
-                    )} */}
-                {/* {book.volumeInfo.description === undefined ? (
-                      <p>No description available</p>
-                    ) : (
-                      <p>{book.volumeInfo.description}</p>
-                    )} */}
-                {/* {book.volumeInfo.publisher === undefined ? (
-                      <p>Publisher unavailable</p>
-                    ) : (
-                      <p>{book.volumeInfo.publisher}</p>
-                    )} */}
                 <a
+                  className="previewDetailLink"
                   href={book.volumeInfo.previewLink}
                   target="_blank"
                   rel="noreferrer"
@@ -55,7 +41,7 @@ const ListBooks = (props) => {
                 </a>
 
                 <Link to={`/book/${book.id}`}>
-                  <p aria-label="Click to see book details">See book details</p>
+                  <p className="previewDetailLink" aria-label="Click to see book details">See book details</p>
                 </Link>
 
                 <AddToReadingList object={book} />
