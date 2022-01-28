@@ -95,7 +95,7 @@ const UserReadingList = () => {
         <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
         <ProgressBar animated now={userProgress} />
 
-        <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
+        <button className="ReadingListBtn" onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
     
 
       <ul className="readingList wrapper">
@@ -109,14 +109,14 @@ const UserReadingList = () => {
                 )}
                 <h2>{book[1].title}</h2>
                 {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-                <button aria-label="Remove book from reading list"
+                <button className="ReadingListBtn" aria-label="Remove book from reading list"
                   onClick={() => {
                     handleRemove(book[0]);
                   }}
                 >
                   Remove
                 </button>
-                <button aria-label="List book as read on your reading list"
+                <button className="ReadingListBtn" aria-label="List book as read on your reading list"
                   onClick={() => {
                     handleRead(book[0]);
                   }}
@@ -139,7 +139,7 @@ const UserReadingList = () => {
                 )}
                 <h2>{book[1].title}</h2>
                 {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-                <button  aria-label="Remove read book from list"
+                <button className="ReadingListBtn" aria-label="Remove read book from list"
                   onClick={() => {
                     handleRemoveRead(book[0]);
                   }}

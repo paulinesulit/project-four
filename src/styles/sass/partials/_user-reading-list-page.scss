@@ -5,18 +5,19 @@
     text-align: center;
 }
 
-.progressBarButton button {
-    margin: 8px;
-    border: 1px solid $murder-red;
-    background-color: $murder-red;
-    padding: 10px 20px;
-    color: white;
-        
-    &:hover,
-    &:focus {
-      background-color: $blue;
-      border: 1px solid $blue;
+button.ReadingListBtn {
+      margin: 8px;
+      border: 1px solid $murder-red;
+      background-color: $murder-red;
+      padding: 10px 20px;
+      color: white;
+          
+      &:hover,
+      &:focus {
+        background-color: $blue;
+        border: 1px solid $blue;
     }
+
 }
 
 .unreadList {
