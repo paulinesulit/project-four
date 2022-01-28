@@ -29,6 +29,28 @@ header ul {
     font-weight: 600;
   }
 }
+.homepageQuote {
+  font-style: italic;
+  position: relative;
+  &::before{
+    content: "\201C";
+    font-family: serif;
+    display: inline-block;
+    position: absolute;
+    left: -20px;
+    font-size: 40px;
+    top: -10px;
+  }
+  &::after {
+    content: "\201D";
+    font-family: serif;
+    display: inline-block;
+    position: absolute;
+    font-size: 40px;
+    bottom: -20px;
+
+  }
+}
 
 .fa-layers.fa-fw {
   font-size: 2rem;

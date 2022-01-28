@@ -103,7 +103,7 @@ const UserReadingList = () => {
         {unreadList.map((book) => {
           return (
             <div className="wrapper">
-            <li key={book[0]}>
+            <li key={book[1].id}>
               {book[1].jacket === undefined ? null : (
                 <img src={book[1].jacket} alt={book[1].title} />
               )}
