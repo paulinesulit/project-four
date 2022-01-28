@@ -7,7 +7,6 @@ import ScrollTop from "./ScrollTop.js";
 // modules
 import { useEffect, useState } from "react";
 import axios from "axios";
-import GenreLinks from "./GenreLinks.js";
 import { Link } from "react-router-dom";
 
 const MurderBooks = () => {

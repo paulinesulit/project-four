@@ -2,7 +2,6 @@
 
 // components
 import AddToReadingList from "./AddToReadingList.js";
-import GenreLinks from "./GenreLinks.js";
 import ScrollTop from "./ScrollTop.js";
 
 // modules
