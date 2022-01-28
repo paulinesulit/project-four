@@ -576,3 +576,76 @@ li {
   max-width: 1200px;
   margin: 0 auto;
 }
+
+@media (max-width: 1050px) {
+  .listBooksDiv div {
+    width: calc(50% - 20px);
+  }
+
+  .readingList {
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+  }
+  .readingList div {
+    width: calc(50% - 20px);
+    margin: auto;
+  }
+}
+@media (max-width: 680px) {
+  header ul {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  header ul .logo {
+    margin-bottom: 30px;
+  }
+
+  .listBooksDiv div {
+    width: calc(80% - 20px);
+    margin: auto;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+  .searchContainer form {
+    width: 80%;
+  }
+  .searchContainer form input {
+    width: 100%;
+    text-align: center;
+  }
+  .searchContainer form button {
+    width: 100%;
+    margin-left: 0;
+    margin-top: 10px;
+  }
+
+  ul.genreLinks {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  ul.genreLinks li {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  ul.genreLinks li img {
+    max-width: 70%;
+    margin: auto;
+  }
+
+  .readingList div {
+    width: calc(80% - 20px);
+    margin: auto;
+  }
+}
