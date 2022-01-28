@@ -15,3 +15,12 @@
         background-color: $blue;
 }
 }
+.scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
+}

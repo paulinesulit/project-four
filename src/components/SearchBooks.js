@@ -32,7 +32,7 @@ const SearchBooks = () => {
         key: apiKey,
         q: `${userAuthorInput}?${userTitleInput}`,
         printType: "books",
-        maxResults: 10,
+        maxResults: 20,
         startIndex: bookCounter,
       },
     }).then((response) => {
@@ -51,7 +51,7 @@ const SearchBooks = () => {
         key: apiKey,
         q: `inauthor:${userAuthorInput}`,
         printType: "books",
-        maxResults: 10,
+        maxResults: 20,
         startIndex: bookCounter,
       },
     })
@@ -76,7 +76,7 @@ const SearchBooks = () => {
         key: apiKey,
         q: `intitle:${userTitleInput}`,
         printType: "books",
-        maxResults: 10,
+        maxResults: 20,
         startIndex: bookCounter,
       },
     })
@@ -125,13 +125,13 @@ const SearchBooks = () => {
   };
 
   const handleClickNext = () => {
-    setBookCounter(bookCounter + 10);
+    setBookCounter(bookCounter + 20);
     // console.log(bookCounter);
     buttonClickCall();
   };
 
   const handleClickBack = () => {
-    setBookCounter(bookCounter - 10);
+    setBookCounter(bookCounter - 20);
     // console.log(bookCounter);
     buttonClickCall();
   };
@@ -170,7 +170,7 @@ const SearchBooks = () => {
       <main>
         {allBooks ? <ListBooks listOfBooks={allBooks} /> : null}
         {allBooks === undefined ? (
-          <p>No results</p>
+          <p className="errorNoResults">No results</p>
         ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
             <button

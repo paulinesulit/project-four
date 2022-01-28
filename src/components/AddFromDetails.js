@@ -12,6 +12,7 @@ const AddFromDetails = (props) => {
             author: book.object.authors,
             link: book.object.previewLink,
             jacket: book.object.imageLinks.thumbnail,
+            id: book.object.industryIdentifiers[0].identifier
         }
         console.log(book)
         console.log(bookObject);
