@@ -3,7 +3,7 @@
 // components
 import AddToReadingList from "./AddToReadingList.js";
 import GenreLinks from "./GenreLinks.js";
-
+import ScrollTop from "./ScrollTop.js";
 
 //modules
 import { useEffect, useState } from "react";
@@ -11,7 +11,6 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const SciFiBooks = () => {
-
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
   const [bookGenre, setBookGenre] = useState([]);
 
@@ -22,7 +21,7 @@ const SciFiBooks = () => {
       method: "GET",
       params: {
         key: apiKey,
-        q: 'science fiction',
+        q: "science fiction",
         printType: "books",
         maxResults: 10,
       },
@@ -33,45 +32,45 @@ const SciFiBooks = () => {
   }, []);
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
-
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div>
       <p>hello sci-fi</p>
       <ul>
-        {
-          bookGenre.map((sciFiBook) => {
-            return (
-              <li key={sciFiBook.id}>
-                <h2>{sciFiBook.volumeInfo.title}</h2>
-                {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
-                  <img
-                    src={sciFiBook.volumeInfo.imageLinks.thumbnail}
-                    alt={sciFiBook.volumeInfo.title}
-                  />
-                )}
-                {sciFiBook.volumeInfo.authors === undefined ? null : (
-                  <h3>{sciFiBook.volumeInfo.authors[0]}</h3>
-                )}
-                {sciFiBook.volumeInfo.averageRating === undefined ? <h4>No rating available</h4> : (
-                  <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
-                )}
+        {bookGenre.map((sciFiBook) => {
+          return (
+            <li key={sciFiBook.id}>
+              <h2>{sciFiBook.volumeInfo.title}</h2>
+              {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
+                <img
+                  src={sciFiBook.volumeInfo.imageLinks.thumbnail}
+                  alt={sciFiBook.volumeInfo.title}
+                />
+              )}
+              {sciFiBook.volumeInfo.authors === undefined ? null : (
+                <h3>{sciFiBook.volumeInfo.authors[0]}</h3>
+              )}
+              {sciFiBook.volumeInfo.averageRating === undefined ? (
+                <h4>No rating available</h4>
+              ) : (
+                <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
+              )}
 
-                <Link to={`/book/${sciFiBook.id}`}>
-                  <p aria-label="Click to see book details">See book details</p>
-                </Link>
+              <Link to={`/book/${sciFiBook.id}`}>
+                <p aria-label="Click to see book details">See book details</p>
+              </Link>
 
-                <AddToReadingList object={sciFiBook} />
-              </li>
-            );
-          })
-        }
+              <AddToReadingList object={sciFiBook} />
+            </li>
+          );
+        })}
         <GenreLinks />
       </ul>
+      <ScrollTop />
     </div>
-  )
-}
+  );
+};
 
 export default SciFiBooks;
