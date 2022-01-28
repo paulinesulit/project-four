@@ -14,8 +14,6 @@ const MurderBooks = () => {
   const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
   const [bookGenre, setBookGenre] = useState([]);
 
-  console.log('wut');
-
   useEffect(() => {
     axios({
       url: "https://www.googleapis.com/books/v1/volumes",
@@ -29,8 +27,7 @@ const MurderBooks = () => {
       },
     }).then((response) => {
       setBookGenre(response.data.items);
-      console.log(response.data.items);
-      // setIfError(false);
+
     });
   }, []);
 

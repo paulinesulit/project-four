@@ -17,7 +17,6 @@ const SearchBooks = () => {
   const [userTitleInput, setUserTitleInput] = useState("");
 
   // useEffect(() => {
-  //   console.log("useEffect", bookCounter);
   // }, [bookCounter]);
 
   // const [ifError, setIfError] = useState(false);
@@ -37,7 +36,7 @@ const SearchBooks = () => {
       },
     }).then((response) => {
       setAllBooks(response.data.items);
-      console.log(response.data.items);
+      
       // setIfError(false);
     });
   };
@@ -57,12 +56,12 @@ const SearchBooks = () => {
     })
       .then((response) => {
         setAllBooks(response.data.items);
-        // console.log(response.data.items);
+      
         // setIfError(false);
-        console.log(bookCounter);
+       
       })
       .catch((error) => {
-        console.log(error);
+      
         alert("Try different search queries");
       });
   };
@@ -81,14 +80,14 @@ const SearchBooks = () => {
       },
     })
       .then((response) => {
-        console.log(response.data.items);
+        
         setAllBooks(response.data.items);
-        // console.log(response.data.items);
+      
         // setIfError(false);
-        console.log(bookCounter);
+      
       })
       .catch((error) => {
-        console.log(error);
+      
         // alert("Try different search queries");
       });
   };
@@ -126,13 +125,11 @@ const SearchBooks = () => {
 
   const handleClickNext = () => {
     setBookCounter(bookCounter + 10);
-    // console.log(bookCounter);
     buttonClickCall();
   };
 
   const handleClickBack = () => {
     setBookCounter(bookCounter - 10);
-    // console.log(bookCounter);
     buttonClickCall();
   };
 

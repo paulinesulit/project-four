@@ -13,10 +13,8 @@ const AddFromDetails = (props) => {
             link: book.object.previewLink,
             jacket: book.object.imageLinks.thumbnail,
         }
-        console.log(book)
-        console.log(bookObject);
-        push(unreadAddress, bookObject);
         
+        push(unreadAddress, bookObject);
     }
 
     return (
