@@ -335,6 +335,18 @@ ul.genreLinks {
           flex-direction: row;
   padding: 50px;
   margin-bottom: 80px;
+  width: 100%;
+}
+ul.genreLinks li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 ul.genreLinks li span h3:hover, ul.genreLinks li span h3:focus {
   color: #3FA9F5;
@@ -348,6 +360,7 @@ ul.genreLinks li h3:hover, ul.genreLinks li h3:focus {
 }
 ul.genreLinks li img {
   max-width: 100%;
+  margin: 0 auto;
 }
 
 .searchContainer {
@@ -606,7 +619,7 @@ h1 {
 }
 .genreBooks li {
   width: calc(100% / 5 - 20px);
-  margin: 10px 10px 20px 10px;
+  margin: 20px 10px 20px 10px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -618,7 +631,7 @@ h1 {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-@media (max-width: 1130px) {
+@media (max-width: 1150px) {
   .genreBooks li {
     width: calc(100% / 4 - 20px);
   }
@@ -641,7 +654,7 @@ h1 {
 .genreBooks li img {
   width: 175px;
   height: 200px;
-  margin: 50px auto;
+  margin: 10px;
 }
 @media (max-width: 465px) {
   .genreBooks li img {
@@ -650,24 +663,18 @@ h1 {
   }
 }
 .genreBooks li h2 {
-  height: 50px;
+  height: 100px;
   font-size: 20px;
   margin-top: 20px;
-}
-@media (max-width: 465px) {
-  .genreBooks li h2 {
-    height: 0;
-    padding: 10px;
-  }
 }
 .genreBooks li h3 {
   font-size: 18px;
   margin: 5px;
-  height: 40px;
+  height: 30px;
 }
 @media (max-width: 465px) {
   .genreBooks li h3 {
-    height: 0;
+    height: 20px;
     padding: 10px;
   }
 }
@@ -678,6 +685,9 @@ h1 {
   .genreBooks li h4 {
     padding: 10px;
   }
+}
+.genreBooks li a, .genreBooks li p {
+  margin: 5px;
 }
 
 .addButton {
