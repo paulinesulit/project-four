@@ -3,16 +3,6 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    .scrollTopBtn {
-      position: fixed;
-      display: block;
-      bottom: 40px;
-      right: 40px;
-      border: none;
-      background: none;
-      font-size: 3rem;
-      color: $murder-red;
-    }
 }
 
 .progressBarButton button {
@@ -27,6 +17,23 @@
       background-color: $blue;
       border: 1px solid $blue;
     }
+}
+
+.progressBarButton .scrollTopBtn {
+      position: fixed;
+      display: block;
+      bottom: 40px;
+      right: 40px;
+      border: none;
+      background: none;
+      font-size: 3rem;
+      color: $murder-red;
+      padding: 1px 4px;
+      margin: 0;
+      &:hover, &:focus {
+        background-color: transparent;
+        border: none;
+      }
 }
 
 .unreadList {
