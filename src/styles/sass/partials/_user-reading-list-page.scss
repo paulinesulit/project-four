@@ -6,7 +6,7 @@
 }
 
 .progressBarButton button {
-    margin: 2% auto;
+    margin: 8px;
     border: 1px solid $murder-red;
     background-color: $murder-red;
     padding: 10px 20px;
@@ -19,14 +19,20 @@
     }
 }
 
+.unreadList {
+    width: 25%;
+}
 .readingList {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  
+  flex-wrap: wrap;
+  width: calc(24% - 20px);
+  margin: 10px;
   li {
     padding: 20px;
-    width: calc(30% - 20px);
+    width: 100%;
+    text-align: center;
   }
 
   img {
