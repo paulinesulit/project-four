@@ -1,5 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLinkedin } from '@fortawesome/free-brands-svg-icons'
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
 const Footer = () => {
   return (
     <footer>
@@ -12,7 +13,6 @@ const Footer = () => {
         Mark Duffy <a target="blank" rel="noreferrer" href="https://www.linkedin.com/in/markduffy-webdev/" aria-label="Go to Mark Duffy's LinkedIn page">{<FontAwesomeIcon icon={faLinkedin} />}</a> |
         Antoni Ibrahim <a target="blank" rel="noreferrer" href="https://www.linkedin.com/in/antoni-i-1b492b123/" aria-label="Go to Antoni Ibrahim's LinkedIn page">{<FontAwesomeIcon icon={faLinkedin} />}</a>
       </p>
-      
     </footer>
   );
 };

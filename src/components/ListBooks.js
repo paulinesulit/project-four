@@ -4,7 +4,7 @@ import AddToReadingList from "./AddToReadingList";
 import { Link } from "react-router-dom";
 
 const ListBooks = (props) => {
-  // console.log(props);
+  
   return (
       <ul>
         {

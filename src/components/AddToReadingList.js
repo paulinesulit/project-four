@@ -18,7 +18,6 @@ const AddToReadingList = (props) => {
       jacket: book.object.volumeInfo.imageLinks.thumbnail,
     };
     push(unreadAddress, bookObject);
-    console.log(book)
   }
   
   return (
@@ -27,6 +26,3 @@ const AddToReadingList = (props) => {
 }
 
 export default AddToReadingList;
-
-
-// errors when there's no images, need ternary operators?

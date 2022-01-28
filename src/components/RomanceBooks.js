@@ -27,7 +27,6 @@ const RomanceBooks = () => {
       },
     }).then((response) => {
       setBookGenre(response.data.items);
-      console.log(response.data.items);
       // setIfError(false);
     });
   }, []);

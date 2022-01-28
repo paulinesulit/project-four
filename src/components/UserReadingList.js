@@ -41,7 +41,6 @@ const UserReadingList = () => {
       }
     })
     return () => {
-      console.log('unmount');
       stopFinishedSubFunction();
       stopUnreadSubFunction();
     }
@@ -68,7 +67,6 @@ const UserReadingList = () => {
     const dbBookAddress = ref(database, `unreadReadingList/${book}`);
 
     get(dbBookAddress).then((bookInfo) => {
-      console.log(bookInfo.val());
       push(finishedAddress, bookInfo.val());
     });
 
