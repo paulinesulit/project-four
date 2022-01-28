@@ -1,9 +1,8 @@
-.bookDetails{
+.bookDetails {
     text-align: center;
-}
-
-.bookDetails h2, img, h3, h4, h5, p, a{
-    margin: 20px;
+    h2, img, h3, h4, h5, p, a {
+        margin: 20px;
+    }
 }
 
 .bookDetailImg{
@@ -26,6 +25,5 @@
 }
 
 .readReview{
-    
     color:$murder-red;
 }
