@@ -608,6 +608,106 @@ footer a, footer p {
   border: 1px solid #3FA9F5;
 }
 
+h1 {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.genreBooks {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 10px 10px 60px 10px;
+  text-align: center;
+}
+.genreBooks li {
+  width: calc(100% / 5 - 20px);
+  margin: 10px 10px 20px 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+@media (max-width: 1130px) {
+  .genreBooks li {
+    width: calc(100% / 4 - 20px);
+  }
+}
+@media (max-width: 910px) {
+  .genreBooks li {
+    width: calc(100% / 3 - 20px);
+  }
+}
+@media (max-width: 710px) {
+  .genreBooks li {
+    width: calc(100% / 2 - 20px);
+  }
+}
+@media (max-width: 465px) {
+  .genreBooks li {
+    width: calc(100% - 20px);
+  }
+}
+.genreBooks li img {
+  width: 175px;
+  height: 200px;
+  margin: 50px auto;
+}
+@media (max-width: 465px) {
+  .genreBooks li img {
+    height: auto;
+    padding: 10px;
+  }
+}
+.genreBooks li h2 {
+  height: 50px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+@media (max-width: 465px) {
+  .genreBooks li h2 {
+    height: 0;
+    padding: 10px;
+  }
+}
+.genreBooks li h3 {
+  font-size: 18px;
+  margin: 5px;
+  height: 40px;
+}
+@media (max-width: 465px) {
+  .genreBooks li h3 {
+    height: 0;
+    padding: 10px;
+  }
+}
+.genreBooks li h4 {
+  font-size: 18px;
+}
+@media (max-width: 465px) {
+  .genreBooks li h4 {
+    padding: 10px;
+  }
+}
+
 body {
   background-color: white;
 }
