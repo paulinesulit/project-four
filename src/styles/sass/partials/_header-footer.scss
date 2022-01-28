@@ -1,5 +1,6 @@
 $murder-red: #FF1D25;
 $blue: #3FA9F5;
+$charcoal: #222121;
 
 .logo {
   max-width: 250px;
@@ -8,10 +9,6 @@ $blue: #3FA9F5;
 
 .logo img {
   max-width: 250px;
-}
-
-.fa-layers.fa-fw {
-  font-size: 3rem;
 }
 
 header ul {
@@ -26,10 +23,38 @@ header ul {
   }
 }
 
+.readingListLink {
+  a {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}
+
+.fa-layers.fa-fw {
+  font-size: 2rem;
+  color: $blue;
+
+  span {
+    background-color: $murder-red;
+    color: white;
+    font-weight: 600;
+    font-size: 2.5rem;
+  }
+}
+
 footer {
-  background: black;
-  position: fixed;
+  background: $charcoal;
+  // position: fixed;
   bottom: 0;
   width: 100%;
   left: 0;
+  font-size: 0.9rem;
+  padding: 30px 0;
+
+  a {
+    &:hover,
+    &:focus {
+      color: $murder-red;
+    }
+  }
 }

@@ -19,8 +19,10 @@ const GenreLinks = () => {
             </li>
             <li>
               <Link to='/genre/fantasy'>
-                <img src="/assets/books-fantasy.png" alt="Fantasy themed icon" aria-label="Click to view fantasy themed books" />
-                <h3>Fantasy</h3>
+                <span>
+                <img src="/assets/books-fantasy.png" alt="Fantasy themed icon" aria-label="Click to view fantasy themed books"/>
+                  <h3>Fantasy</h3>
+                </span>
               </Link>
             </li>
             <li>
@@ -31,8 +33,10 @@ const GenreLinks = () => {
             </li>
             <li>
               <Link to='/genre/sci-fi'>
-                <img src="/assets/books-sci-fi.png" alt="Sci-Fi themed icon" aria-label="Click to view sci-fi themed books" />
-                <h3>Sci-Fi</h3>
+                <span>
+                  <img src="/assets/books-sci-fi.png" alt="Sci-Fi themed icon" aria-label="Click to view sci-fi themed books" />
+                  <h3>Sci-Fi</h3>
+                </span>
               </Link>
             </li>
           </ul>

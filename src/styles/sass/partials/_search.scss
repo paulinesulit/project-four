@@ -1,28 +1,44 @@
 .searchContainer {
   display: flex;
   justify-content: center;
+  align-items: center;
+  background-color: whitesmoke;
+  padding: 30px 0 40px 0;
+  
   form {
     text-align: center;
+    
     label {
       display: block;
+      font-size: 1rem;
     }
+    
     p {
       border-top: 1px solid black;
       border-bottom: 1px solid black;
       margin: 15px;
     }
+    
     button {
-        border: 1px solid black;
+        border: 1px solid $murder-red;
         background-color: $murder-red;
-        padding: 10px;
+        padding: 8px 10px;
         color: white;
-        &:hover {
+        margin-left: 10px;
+        font-size: 1rem;
+        font-weight: 600;
+
+        &:hover,
+        &:focus {
           background-color: $blue;
+          border: 1px solid $blue;
         }
     }
+    
     input {
-        padding: 10px;
+        padding: 5px 10px;
         border: 1px solid black;
+        font-size: 1rem;
     }
   }
 }
