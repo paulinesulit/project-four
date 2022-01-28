@@ -35,7 +35,7 @@ const FantasyBooks = () => {
 
   return (
     <div className="wrapper">
-      <h1>Sci-fi books, you say?</h1>
+      <h1>Fantasy books, you say?</h1>
       <ul className="genreBooks">
         {bookGenre.map((fantasyBook) => {
           const title = fantasyBook.volumeInfo.title;
