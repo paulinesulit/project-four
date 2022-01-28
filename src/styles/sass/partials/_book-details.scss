@@ -1,0 +1,30 @@
+.bookDetails{
+    text-align: center;
+}
+
+.bookDetails h2, img, h3, h4, h5, p, a{
+    margin: 20px;
+}
+
+.bookDetailImg{
+    width: 175px;
+    height: 200px;
+}
+
+.addFromBtn{
+    margin: 40px auto;
+    border: 1px solid $murder-red;
+    background-color: $murder-red;
+    padding: 10px 20px;
+    color: white;
+    width: 500px;   
+    &:hover,
+    &:focus {
+      background-color: $blue;
+      border: 1px solid $blue;
+    }
+}
+
+.readReview{
+    color:$murder-red;
+}
