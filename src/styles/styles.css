@@ -333,9 +333,11 @@ ul.genreLinks {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  padding: 50px;
+  padding: 50px 0;
   margin-bottom: 80px;
   width: 100%;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 ul.genreLinks li {
   display: -webkit-box;
@@ -347,6 +349,7 @@ ul.genreLinks li {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  width: calc(100% / 4);
 }
 ul.genreLinks li span h3:hover, ul.genreLinks li span h3:focus {
   color: #3FA9F5;
@@ -631,36 +634,10 @@ h1 {
       -ms-flex-pack: justify;
           justify-content: space-between;
 }
-@media (max-width: 1150px) {
-  .genreBooks li {
-    width: calc(100% / 4 - 20px);
-  }
-}
-@media (max-width: 910px) {
-  .genreBooks li {
-    width: calc(100% / 3 - 20px);
-  }
-}
-@media (max-width: 710px) {
-  .genreBooks li {
-    width: calc(100% / 2 - 20px);
-  }
-}
-@media (max-width: 465px) {
-  .genreBooks li {
-    width: calc(100% - 20px);
-  }
-}
 .genreBooks li img {
   width: 175px;
   height: 200px;
   margin: 10px;
-}
-@media (max-width: 465px) {
-  .genreBooks li img {
-    height: auto;
-    padding: 10px;
-  }
 }
 .genreBooks li h2 {
   height: 100px;
@@ -672,19 +649,8 @@ h1 {
   margin: 5px;
   height: 30px;
 }
-@media (max-width: 465px) {
-  .genreBooks li h3 {
-    height: 20px;
-    padding: 10px;
-  }
-}
 .genreBooks li h4 {
   font-size: 18px;
-}
-@media (max-width: 465px) {
-  .genreBooks li h4 {
-    padding: 10px;
-  }
 }
 .genreBooks li a, .genreBooks li p {
   margin: 5px;
@@ -773,6 +739,11 @@ li {
   color: #FF1D25;
 }
 
+@media (max-width: 1150px) {
+  ul.genreBooks li {
+    width: calc(100% / 4 - 20px);
+  }
+}
 @media (max-width: 1050px) {
   .listBooksDiv div {
     width: calc(50% - 20px);
@@ -785,6 +756,26 @@ li {
   .readingList div {
     width: calc(50% - 20px);
     margin: auto;
+  }
+}
+@media (max-width: 980px) {
+  ul.genreLinks li {
+    width: calc(100% /2);
+  }
+
+  ul.genreBooks li {
+    width: calc(100% / 3 - 20px);
+  }
+
+  .scrollTopBtn {
+    font-size: 2rem;
+    bottom: 20px;
+    right: 20px;
+  }
+}
+@media (max-width: 710px) {
+  ul.genreBooks li {
+    width: calc(100% / 2 - 20px);
   }
 }
 @media (max-width: 680px) {
@@ -829,19 +820,36 @@ li {
             flex-direction: column;
     margin-bottom: 30px;
   }
-
   ul.genreLinks li {
     text-align: center;
     margin-bottom: 50px;
-  }
-
-  ul.genreLinks li img {
-    max-width: 70%;
-    margin: auto;
+    width: 100%;
   }
 
   .readingList div {
     width: calc(80% - 20px);
     margin: auto;
+  }
+}
+@media (max-width: 465px) {
+  ul.genreBooks li {
+    width: calc(100% - 20px);
+  }
+  ul.genreBooks li img {
+    height: auto;
+    padding: 10px;
+  }
+  ul.genreBooks li h3 {
+    height: 20px;
+    padding: 10px;
+  }
+  ul.genreBooks li h4 {
+    padding: 10px;
+  }
+
+  .scrollTopBtn {
+    font-size: 1.75rem;
+    bottom: 5px;
+    right: 5px;
   }
 }

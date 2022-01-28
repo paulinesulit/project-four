@@ -39,6 +39,7 @@ const SciFiBooks = () => {
       <h1>Sci-fi books, you say?</h1>
       <ul className="genreBooks">
         {bookGenre.map((sciFiBook) => {
+          const title = sciFiBook.volumeInfo.title;
           return (
             <li key={sciFiBook.id}>
               {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
@@ -47,7 +48,7 @@ const SciFiBooks = () => {
                   alt={sciFiBook.volumeInfo.title}
                 />
               )}
-              <h2>{sciFiBook.volumeInfo.title}</h2>
+              <h2>{title.substring(0, 30)}</h2>
               {sciFiBook.volumeInfo.authors === undefined ? null : (
                 <h3>{sciFiBook.volumeInfo.authors[0]}</h3>
               )}
@@ -58,7 +59,12 @@ const SciFiBooks = () => {
               )}
 
               <Link to={`/book/${sciFiBook.id}`}>
-                <p aria-label="Click to see book details">See book details</p>
+                <p
+                  className="previewDetailLink"
+                  aria-label="Click to see book details"
+                >
+                  See book details
+                </p>
               </Link>
 
               <AddToReadingList object={sciFiBook} />
