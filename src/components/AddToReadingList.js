@@ -27,6 +27,3 @@ const AddToReadingList = (props) => {
 }
 
 export default AddToReadingList;
-
-
-// errors when there's no images, need ternary operators?
