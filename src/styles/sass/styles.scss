@@ -1,6 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap%27');
-
-
 @import "partials/setup";
 @import "partials/variables";
 @import "partials/header-footer";
@@ -8,8 +5,13 @@
 @import "partials/search";
 @import "partials/typography";
 
+
+$murder-red: #FF1D25;
+$blue: #3FA9F5;
+$charcoal: #222121;
+
 body {
-  background-color: papayawhip;
+  background-color: white;
 }
 
 li {
@@ -31,4 +33,4 @@ li {
   font-size: 3rem;
 }
 
-// I hope this worked
+// hello

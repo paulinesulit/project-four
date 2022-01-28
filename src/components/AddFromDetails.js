@@ -6,7 +6,7 @@ const AddFromDetails = (props) => {
     const unreadAddress = ref(database, 'unreadReadingList');
 
     const addBookDetails = (book) => {
-       
+
         const bookObject = {
             title: book.object.title,
             author: book.object.authors,

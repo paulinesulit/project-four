@@ -16,14 +16,14 @@ const Header = () => {
               />
             </Link>
           </li>
-          <li>
+          <li className="readingListLink">
+            <ReadingListIcon />
             <Link
               to="/mybooks"
               aria-label="Click to go to your reading list page"
             >
               My Reading List
             </Link>
-            <ReadingListIcon />
           </li>
         </ul>
       </nav>
