@@ -1,0 +1,17 @@
+.progressBarButton{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+}
+.progressBarButton button{
+    width: 300px;
+    margin: 2% auto;
+    border: 1px solid black;
+    background-color: $murder-red;
+    padding: 10px;
+    color: white;
+        &:hover {
+        background-color: $blue;
+}
+}

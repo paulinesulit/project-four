@@ -411,6 +411,32 @@ footer a, footer p {
   text-align: center;
 }
 
+.progressBarButton {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+}
+
+.progressBarButton button {
+  width: 300px;
+  margin: 2% auto;
+  border: 1px solid black;
+  background-color: #FF1D25;
+  padding: 10px;
+  color: white;
+}
+.progressBarButton button:hover {
+  background-color: #3FA9F5;
+}
+
 body {
   background-color: white;
 }

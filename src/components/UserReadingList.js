@@ -93,15 +93,18 @@ const UserReadingList = () => {
   }
 
   return (
-    <div>
-      
+      <div className='wrapper progressBarButton'>
         <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
         <ProgressBar animated now={userProgress} />
 
         <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
+    
+     
       <ul>
+        
         {unreadList.map((book) => {
           return (
+            <div className="wrapper">
             <li key={book[0]}>
               <h2>{book[1].title}</h2>
               {book[1].jacket === undefined ? null : (
@@ -123,6 +126,7 @@ const UserReadingList = () => {
                 Read
               </button>
             </li>
+          </div>
           );
         })}
         {readList.map((book) => {
@@ -145,6 +149,7 @@ const UserReadingList = () => {
         })}
       </ul>
       <ScrollTop />
+      
     </div>
   );
 };
