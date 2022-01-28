@@ -36,9 +36,9 @@ const SciFiBooks = () => {
   }, []);
 
   return (
-    <div>
-      <p>hello sci-fi</p>
-      <ul>
+    <div className="wrapper">
+      <h1>Sci-fi books, you say?</h1>
+      <ul className="genreBooks">
         {bookGenre.map((sciFiBook) => {
           return (
             <li key={sciFiBook.id}>
@@ -66,7 +66,6 @@ const SciFiBooks = () => {
             </li>
           );
         })}
-        <GenreLinks />
       </ul>
       <ScrollTop />
     </div>
