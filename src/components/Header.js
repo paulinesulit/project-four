@@ -9,12 +9,12 @@ const Header = () => {
       <nav className="wrapper">
         <ul>
           <li className="logo">
-            <Link to="/" aria-label="Click to go back to the search">
+            <a href="/">
               <img
                 src="/assets/page-turners-logo.png"
                 alt="Page Turners logo"
               />
-            </Link>
+            </a>
           </li>
           <li className="readingListLink">
             <ReadingListIcon />
