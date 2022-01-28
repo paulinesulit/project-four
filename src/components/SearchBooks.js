@@ -163,7 +163,7 @@ const SearchBooks = () => {
         </form>
       </section>
 
-      <main>
+      <section>
         {allBooks ? <ListBooks listOfBooks={allBooks} /> : null}
         {allBooks === undefined ? (
           <p className="errorNoResults">No results</p>
@@ -178,7 +178,7 @@ const SearchBooks = () => {
               Next
             </button>
           ) : (
-            <div>
+            <div className="paginationButtons">
               <button
               className='prevBtn'
                 onClick={handleClickBack}
@@ -198,7 +198,7 @@ const SearchBooks = () => {
             </div>
           )
         ) : null}
-      </main>
+      </section>
     </div>
   );
 };
