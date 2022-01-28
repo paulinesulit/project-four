@@ -1,0 +1,70 @@
+@media (max-width: 1050px) {
+  .listBooksDiv div {
+    width: calc(50% - 20px);
+  }
+
+  .readingList {
+    flex-wrap: wrap;
+
+    div {
+      width: calc(50% - 20px);
+      margin: auto;
+    }
+  }
+}
+
+@media (max-width: 680px) {
+  header ul {
+    flex-direction: column;
+    align-items: center;
+
+    .logo {
+      margin-bottom: 30px;
+    }
+  }
+  .listBooksDiv div {
+    width: calc(80% - 20px);
+    margin: auto;
+  }
+  .searchContainer {
+    width: 100%;
+    form {
+      width: 80%;
+  
+      input {
+        width: 100%;
+        text-align: center;
+      }
+      
+      button {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+      }
+    }
+  }
+
+  ul.genreLinks {
+    flex-direction: column;
+    margin-bottom: 30px;
+  }
+
+  ul.genreLinks li {
+    text-align: center;
+    margin-bottom: 50px;
+  }
+
+  ul.genreLinks li img {
+    max-width: 70%;
+    margin: auto;
+  }
+  
+  .readingList {
+
+    div {
+      width: calc(80% - 20px);
+      margin: auto;
+    }
+  }
+  
+}

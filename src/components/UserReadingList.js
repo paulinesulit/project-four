@@ -98,51 +98,56 @@ const UserReadingList = () => {
         <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
     
 
-      <ul className="readingList">
+      <ul className="readingList wrapper">
         
         {unreadList.map((book) => {
           return (
-            <div className="wrapper">
-            <li key={book[1].id}>
-              {book[1].jacket === undefined ? null : (
-                <img src={book[1].jacket} alt={book[1].title} />
-              )}
-              <h2>{book[1].title}</h2>
-              {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-              <button aria-label="Remove book from reading list"
-                onClick={() => {
-                  handleRemove(book[0]);
-                }}
-              >
-                Remove
-              </button>
-              <button aria-label="List book as read on your reading list"
-                onClick={() => {
-                  handleRead(book[0]);
-                }}
-              >
-                Read
-              </button>
-            </li>
+            <div className="unreadList">
+              <li key={book[1].id}>
+                {book[1].jacket === undefined ? null : (
+                  <img src={book[1].jacket} alt={book[1].title} />
+                )}
+                <h2>{book[1].title}</h2>
+                {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
+                <button aria-label="Remove book from reading list"
+                  onClick={() => {
+                    handleRemove(book[0]);
+                  }}
+                >
+                  Remove
+                </button>
+                <button aria-label="List book as read on your reading list"
+                  onClick={() => {
+                    handleRead(book[0]);
+                  }}
+                >
+                  Read
+                </button>
+              </li>
           </div>
           );
         })}
-        {readList.map((book) => {
+      </ul>
+      <ul className="readingList wrapper">
+        {
+        readList.map((book) => {
           return (
-            <li className="readBook" key={book}>
-              {book[1].jacket === undefined ? null : (
-                <img src={book[1].jacket} alt={book[1].title} />
-              )}
-              <h2>{book[1].title}</h2>
-              {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-              <button  aria-label="Remove read book from list"
-                onClick={() => {
-                  handleRemoveRead(book[0]);
-                }}
-              >
-                Remove
-              </button>
-            </li>
+           <div className="readList">
+              <li className="readBook" key={book}>
+                {book[1].jacket === undefined ? null : (
+                  <img src={book[1].jacket} alt={book[1].title} />
+                )}
+                <h2>{book[1].title}</h2>
+                {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
+                <button  aria-label="Remove read book from list"
+                  onClick={() => {
+                    handleRemoveRead(book[0]);
+                  }}
+                >
+                  Remove
+                </button>
+              </li>
+            </div> 
           );
         })}
       </ul>

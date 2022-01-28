@@ -6,6 +6,7 @@
 @import "partials/typography";
 @import "partials/user-reading-list-page";
 @import "partials/genre-pages";
+@import "partials/utilities";
 
 
 $murder-red: #FF1D25;
@@ -26,4 +27,19 @@ li {
   margin: 0 auto;
 }
 
+.scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
+  color: $murder-red;
+}
 
+
+
+
+
+@import "partials/media-queries";

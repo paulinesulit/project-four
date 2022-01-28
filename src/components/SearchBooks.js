@@ -163,13 +163,14 @@ const SearchBooks = () => {
         </form>
       </section>
 
-      <main>
+      <section>
         {allBooks ? <ListBooks listOfBooks={allBooks} /> : null}
         {allBooks === undefined ? (
           <p className="errorNoResults">No results</p>
         ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
             <button
+            className='nextBtn'
               onClick={handleClickNext}
               aria-label="Go to the next page of books"
             >
@@ -177,8 +178,9 @@ const SearchBooks = () => {
               Next
             </button>
           ) : (
-            <div>
+            <div className="paginationButtons">
               <button
+              className='prevBtn'
                 onClick={handleClickBack}
                 aria-label="Go to the previous page of books"
               >
@@ -186,6 +188,7 @@ const SearchBooks = () => {
                 Back
               </button>
               <button
+                className='nextBtn'
                 onClick={handleClickNext}
                 aria-label="Go to the next page of books"
               >
@@ -195,7 +198,7 @@ const SearchBooks = () => {
             </div>
           )
         ) : null}
-      </main>
+      </section>
     </div>
   );
 };
