@@ -33,10 +33,12 @@ const BookDetails = () => {
 
   return (
 
-    <div>
+    <div className="wrapper">
+      <div className="bookDetails">
       <h2>{book.title}</h2>
       {book.imageLinks === undefined ? null : (
         <img
+        className="bookDetailImg"
           src={book.imageLinks.thumbnail}
           alt={book.title}
         />
@@ -56,14 +58,18 @@ const BookDetails = () => {
       {book.publisher === undefined ? <p>Publisher unavailable</p> : (
         <p>{book.publisher}</p>
       )}
+      <div className="reviewBtn">
       <a
+      className="readReview"
         href={book.previewLink}
         target="_blank"
         rel="noreferrer"
       >
         Read a preview
       </a>
+      </div>
       <AddFromDetails object={book}/>
+      </div>
     </div>
 
   )
