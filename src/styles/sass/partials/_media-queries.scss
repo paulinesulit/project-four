@@ -26,7 +26,7 @@
   ul.genreBooks li {
     width: calc(100% / 3 - 20px);
   }
-  .scrollTopBtn {
+  .scrollTopBtn, .progressBarButton .scrollTopBtn {
     font-size: 2rem;
     bottom: 20px;
     right: 20px;
@@ -105,7 +105,7 @@
       padding: 10px;
     }
   }
-  .scrollTopBtn {
+  .scrollTopBtn, .progressBarButton .scrollTopBtn {
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;

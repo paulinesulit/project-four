@@ -539,6 +539,16 @@ footer a, footer p {
           flex-direction: column;
   text-align: center;
 }
+.progressBarButton .scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
+  color: #FF1D25;
+}
 
 .progressBarButton button {
   margin: 8px;
@@ -687,8 +697,7 @@ h1 {
 .bookDetails {
   text-align: center;
 }
-
-.bookDetails h2, img, h3, h4, h5, p, a {
+.bookDetails h2, .bookDetails img, .bookDetails h3, .bookDetails h4, .bookDetails h5, .bookDetails p, .bookDetails a {
   margin: 20px;
 }
 
@@ -767,7 +776,7 @@ li {
     width: calc(100% / 3 - 20px);
   }
 
-  .scrollTopBtn {
+  .scrollTopBtn, .progressBarButton .scrollTopBtn {
     font-size: 2rem;
     bottom: 20px;
     right: 20px;
@@ -847,7 +856,7 @@ li {
     padding: 10px;
   }
 
-  .scrollTopBtn {
+  .scrollTopBtn, .progressBarButton .scrollTopBtn {
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;
