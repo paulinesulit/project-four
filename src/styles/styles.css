@@ -539,16 +539,6 @@ footer a, footer p {
           flex-direction: column;
   text-align: center;
 }
-.progressBarButton .scrollTopBtn {
-  position: fixed;
-  display: block;
-  bottom: 40px;
-  right: 40px;
-  border: none;
-  background: none;
-  font-size: 3rem;
-  color: #FF1D25;
-}
 
 .progressBarButton button {
   margin: 8px;
@@ -560,6 +550,23 @@ footer a, footer p {
 .progressBarButton button:hover, .progressBarButton button:focus {
   background-color: #3FA9F5;
   border: 1px solid #3FA9F5;
+}
+
+.progressBarButton .scrollTopBtn {
+  position: fixed;
+  display: block;
+  bottom: 40px;
+  right: 40px;
+  border: none;
+  background: none;
+  font-size: 3rem;
+  color: #FF1D25;
+  padding: 1px 4px;
+  margin: 0;
+}
+.progressBarButton .scrollTopBtn:hover, .progressBarButton .scrollTopBtn:focus {
+  background-color: transparent;
+  border: none;
 }
 
 .unreadList {
