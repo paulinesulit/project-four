@@ -78,9 +78,26 @@ margin: 50px auto;
 .listBooksRating {
   font-size: 18px;
 }
+a.previewDetailLink,
+p.previewDetailLink {
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: underline;
+  color: $blue;
+  margin: 10px 0;
+
+  &:hover,
+  &:focus {
+    color: darken($blue, 12);
+  }
+}
 .errorNoResults {
   text-align: center;
-  color: red;
+  color: $murder-red;
   border: 2px solid black;
   font-weight: 600;
+}
+
+.paginationButtons {
+  text-align: center;
 }
