@@ -34,9 +34,9 @@ const FantasyBooks = () => {
   }, []);
 
   return (
-    <div>
-      <p>hello fantasy</p>
-      <ul>
+    <div className="wrapper">
+      <h1>Sci-fi books, you say?</h1>
+      <ul className="genreBooks">
         {bookGenre.map((fantasyBook) => {
           return (
             <li key={fantasyBook.id}>

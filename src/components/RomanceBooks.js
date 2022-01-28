@@ -36,9 +36,9 @@ const RomanceBooks = () => {
   }, []);
 
   return (
-    <div>
-      <p>hello romance</p>
-      <ul>
+    <div className="wrapper">
+      <h1>Romance books, you say?</h1>
+      <ul className="genreBooks">
         {bookGenre.map((romanceBook) => {
           return (
             <li key={romanceBook.id}>
@@ -64,7 +64,6 @@ const RomanceBooks = () => {
             </li>
           );
         })}
-        <GenreLinks />
       </ul>
       <ScrollTop />
     </div>
