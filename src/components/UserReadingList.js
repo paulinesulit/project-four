@@ -41,7 +41,6 @@ const UserReadingList = () => {
       }
     })
     return () => {
-      console.log('unmount');
       stopFinishedSubFunction();
       stopUnreadSubFunction();
     }
@@ -68,7 +67,6 @@ const UserReadingList = () => {
     const dbBookAddress = ref(database, `unreadReadingList/${book}`);
 
     get(dbBookAddress).then((bookInfo) => {
-      console.log(bookInfo.val());
       push(finishedAddress, bookInfo.val());
     });
 
@@ -99,17 +97,17 @@ const UserReadingList = () => {
 
         <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
     
-     
-      <ul>
+
+      <ul className="readingList">
         
         {unreadList.map((book) => {
           return (
             <div className="wrapper">
             <li key={book[1].id}>
-              <h2>{book[1].title}</h2>
               {book[1].jacket === undefined ? null : (
                 <img src={book[1].jacket} alt={book[1].title} />
               )}
+              <h2>{book[1].title}</h2>
               {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
               <button aria-label="Remove book from reading list"
                 onClick={() => {
@@ -131,11 +129,11 @@ const UserReadingList = () => {
         })}
         {readList.map((book) => {
           return (
-            <li key={book}>
-              <h2>{book[1].title}</h2>
+            <li className="readBook" key={book}>
               {book[1].jacket === undefined ? null : (
                 <img src={book[1].jacket} alt={book[1].title} />
               )}
+              <h2>{book[1].title}</h2>
               {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
               <button  aria-label="Remove read book from list"
                 onClick={() => {

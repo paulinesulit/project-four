@@ -26,8 +26,6 @@ const BookDetails = () => {
       },
     }).then((response) => {
       setBook(response.data.volumeInfo);
-      console.log(response.data.volumeInfo)
-
     })
   }, [bookId]);
 

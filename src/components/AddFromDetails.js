@@ -14,10 +14,8 @@ const AddFromDetails = (props) => {
             jacket: book.object.imageLinks.thumbnail,
             id: book.object.industryIdentifiers[0].identifier
         }
-        console.log(book)
-        console.log(bookObject);
-        push(unreadAddress, bookObject);
         
+        push(unreadAddress, bookObject);
     }
 
     return (

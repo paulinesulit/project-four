@@ -10,10 +10,8 @@ import { useEffect, useState } from "react";
 
 const ReadingListIcon = () => {
 
-
-
 const [unreadList, setUnreadList] = useState([]);
-  const [readList, setReadList] = useState([]);
+const [readList, setReadList] = useState([]);
 
   const database = getDatabase(BooksProject);
   
@@ -32,7 +30,6 @@ const [unreadList, setUnreadList] = useState([]);
       if (response.val() === null) {
         setReadList([]);
       } else {
-        console.log(response.val());
         setReadList(Object.entries(response.val()));
       }
     },[])
