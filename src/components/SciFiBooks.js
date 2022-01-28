@@ -41,13 +41,13 @@ const SciFiBooks = () => {
         {bookGenre.map((sciFiBook) => {
           return (
             <li key={sciFiBook.id}>
-              <h2>{sciFiBook.volumeInfo.title}</h2>
               {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
                 <img
                   src={sciFiBook.volumeInfo.imageLinks.thumbnail}
                   alt={sciFiBook.volumeInfo.title}
                 />
               )}
+              <h2>{sciFiBook.volumeInfo.title}</h2>
               {sciFiBook.volumeInfo.authors === undefined ? null : (
                 <h3>{sciFiBook.volumeInfo.authors[0]}</h3>
               )}

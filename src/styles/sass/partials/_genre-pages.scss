@@ -13,11 +13,11 @@ h1 {
     text-align: center;
     li {
         width: calc(100% / 5 - 20px);
-        margin: 10px 10px 20px 10px;
+        margin: 20px 10px 20px 10px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        @media (max-width: 1130px) {
+        @media (max-width: 1150px) {
             width: calc(100% / 4 - 20px);
         }
         @media (max-width: 910px) {
@@ -32,27 +32,23 @@ h1 {
         img {
             width: 175px;
             height: 200px;
-            margin: 50px auto;
+            margin: 10px;
             @media (max-width: 465px) {
                 height: auto;
                 padding: 10px;
             }  
         }
         h2 {
-            height: 50px;
+            height: 100px;
             font-size: 20px;
             margin-top: 20px;
-            @media (max-width: 465px) {
-                height: 0;
-                padding: 10px;
-            }  
         }
         h3 {
             font-size: 18px;
             margin: 5px;
-            height: 40px;
+            height: 30px;
             @media (max-width: 465px) {
-                height: 0;
+                height: 20px;
                 padding: 10px;
             }  
         }
@@ -61,6 +57,9 @@ h1 {
             @media (max-width: 465px) {
                 padding: 10px;
             }  
+        }
+        a, p {
+            margin: 5px;
         }
     }
 }

@@ -6,17 +6,18 @@ ul.genreLinks {
   flex-direction: row;
   padding: 50px;
   margin-bottom: 80px;
-  
+  width: 100%;
   li {
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
     span h3 {
       &:hover,
       &:focus {
         color: $blue;
       }
     }
-
-    h3{
+    h3 {
       text-align: center;
       font-size: 1.3rem;
 
@@ -25,9 +26,10 @@ ul.genreLinks {
         color: $murder-red;
       }
     }
-
+    
     img {
       max-width: 100%;
+      margin: 0 auto;
     }
   }
 }

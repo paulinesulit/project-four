@@ -40,13 +40,13 @@ const MurderBooks = () => {
         {bookGenre.map((murderBook) => {
           return (
             <li key={murderBook.id}>
-              <h2>{murderBook.volumeInfo.title}</h2>
               {murderBook.volumeInfo.imageLinks === undefined ? null : (
                 <img
                   src={murderBook.volumeInfo.imageLinks.thumbnail}
                   alt={murderBook.volumeInfo.title}
                 />
               )}
+              <h2>{murderBook.volumeInfo.title}</h2>
               {murderBook.volumeInfo.authors === undefined ? null : (
                 <h3>{murderBook.volumeInfo.authors[0]}</h3>
               )}
