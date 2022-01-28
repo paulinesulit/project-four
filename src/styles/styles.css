@@ -426,15 +426,50 @@ footer a, footer p {
 }
 
 .progressBarButton button {
-  width: 300px;
   margin: 2% auto;
-  border: 1px solid black;
+  border: 1px solid #FF1D25;
   background-color: #FF1D25;
-  padding: 10px;
+  padding: 10px 20px;
   color: white;
 }
-.progressBarButton button:hover {
+.progressBarButton button:hover, .progressBarButton button:focus {
   background-color: #3FA9F5;
+  border: 1px solid #3FA9F5;
+}
+
+.readingList {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.readingList li {
+  padding: 20px;
+  width: calc(30% - 20px);
+}
+.readingList img {
+  margin-bottom: 10px;
+}
+.readingList h2 {
+  font-size: 1.2rem;
+}
+.readingList h3 {
+  font-size: 1.1rem;
+}
+
+.readBook img {
+  -webkit-filter: grayscale(100%);
+  /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+}
+.readBook h2,
+.readBook h3 {
+  color: gray;
 }
 
 body {
