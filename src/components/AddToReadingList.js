@@ -2,12 +2,13 @@
 
 import BooksProject from "../firebaseSetup.js";
 import { getDatabase, ref, push } from "firebase/database";
-
+import { auth } from "../firebaseSetup.js";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const AddToReadingList = (props) => {
-
+  const [user, loading, error] = useAuthState(auth);
   const database = getDatabase(BooksProject);
-  const unreadAddress = ref(database, 'unreadReadingList');
+  const unreadAddress = ref(database, `${user?.uid}/unreadReadingList`);
 
   const addBook = (book) => {
     const bookObject = {

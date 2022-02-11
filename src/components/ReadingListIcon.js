@@ -7,19 +7,22 @@ import {
   ref
 } from "firebase/database";
 import { useEffect, useState } from "react";
+import { auth } from "../firebaseSetup.js";
+import { useAuthState } from "react-firebase-hooks/auth";
 
-const ReadingListIcon = () => {
+const ReadingListIcon = (props) => {
 
-const [unreadList, setUnreadList] = useState([]);
-const [readList, setReadList] = useState([]);
+  const [unreadList, setUnreadList] = useState([]);
+  const [readList, setReadList] = useState([]);
 
   const database = getDatabase(BooksProject);
-  
+  const [user, loading, error] = useAuthState(auth);  
 
   useEffect(() => {
-    const unreadAddress = ref(database, "unreadReadingList");
-    const finishedAddress = ref(database, "finishedReadingList");
+    const unreadAddress = ref(database, `${props.user?.uid}/unreadReadingList`);
+    const finishedAddress = ref(database, `${props.user?.uid}/finishedReadingList`);
     onValue(unreadAddress, (response) => {
+      console.log(response.val())
       if (response.val() === null) {
         setUnreadList([]);
       } else {
@@ -33,7 +36,7 @@ const [readList, setReadList] = useState([]);
         setReadList(Object.entries(response.val()));
       }
     },[])
-  }, [database]);
+  }, [database, props.user]);
 
     return (
 <div>

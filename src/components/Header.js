@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 // import { faBook, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import ReadingListIcon from "./ReadingListIcon";
 
-const Header = () => {
+const Header = (props) => {
+  
   return (
     <header>
       <nav className="wrapper">
@@ -17,8 +18,21 @@ const Header = () => {
               />
             </Link>
           </li>
+          <li className="loginRegisterHeader">
+            {!props.user
+              ? <> <Link
+                to="/login"
+                aria-label="Click to login"
+              >Login</Link>
+                <Link
+                  to="/register"
+                  aria-label="Click to register"
+                >Register</Link> </>
+              : <Link to="/dashboard" aria-label="click to go to user dashboard">Dashboard</Link>
+            }
+          </li>
           <li className="readingListLink">
-            <ReadingListIcon />
+            <ReadingListIcon user={props.user} />
             <Link
               to="/mybooks"
               aria-label="Click to go to your reading list page"

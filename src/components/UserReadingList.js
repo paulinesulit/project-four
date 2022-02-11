@@ -12,6 +12,8 @@ import {
 import { useEffect, useState } from "react";
 import ProgressBar from 'react-bootstrap/ProgressBar';
 import ScrollTop from "./ScrollTop.js";
+import { auth } from "../firebaseSetup.js";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 const UserReadingList = () => {
   const [unreadList, setUnreadList] = useState([]);
@@ -19,11 +21,11 @@ const UserReadingList = () => {
   const [userProgress, setUserProgress] = useState(0)
 
   const database = getDatabase(BooksProject);
-
+  const [user, loading, error] = useAuthState(auth);
 
   useEffect(() => {
-    const unreadAddress = ref(database, "unreadReadingList");
-    const finishedAddress = ref(database, "finishedReadingList");
+    const unreadAddress = ref(database, `${user?.uid}/unreadReadingList`);
+    const finishedAddress = ref(database, `${ user?.uid}/finishedReadingList`);
 
     const stopUnreadSubFunction = onValue(unreadAddress, (response) => {
       if (response.val() === null) {
@@ -50,21 +52,21 @@ const UserReadingList = () => {
   const handleRemove = (book) => {
     const database = getDatabase(BooksProject);
 
-    const dbBookAddress = ref(database, `unreadReadingList/${book}`);
+    const dbBookAddress = ref(database, `${user?.uid}/unreadReadingList/${book}`);
     remove(dbBookAddress);
   };
 
   const handleRemoveRead = (book) => {
     const database = getDatabase(BooksProject);
 
-    const dbBookAddress = ref(database, `finishedReadingList/${book}`);
+    const dbBookAddress = ref(database, `${user?.uid}/finishedReadingList/${book}`);
     remove(dbBookAddress);
   };
 
   const handleRead = (book) => {
     const database = getDatabase(BooksProject);
-    const finishedAddress = ref(database, "finishedReadingList");
-    const dbBookAddress = ref(database, `unreadReadingList/${book}`);
+    const finishedAddress = ref(database, `${user?.uid}/finishedReadingList`);
+    const dbBookAddress = ref(database, `${user?.uid}/unreadReadingList/${book}`);
 
     get(dbBookAddress).then((bookInfo) => {
       push(finishedAddress, bookInfo.val());
@@ -99,7 +101,10 @@ const UserReadingList = () => {
     
 
       <ul className="readingList wrapper">
-        
+        { !user
+          ? <p>Please Log in to Start Your Reading List</p>
+          : null
+        }
         {unreadList.map((book) => {
           return (
             <div className="unreadList">

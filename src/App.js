@@ -10,18 +10,25 @@ import SciFiBooks from './components/SciFiBooks.js';
 import RomanceBooks from './components/RomanceBooks.js';
 import FantasyBooks from './components/FantasyBooks.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Login from "./components/Login.js";
+import Register from "./components/Register.js";
+import Reset from "./components/Reset.js";
+import Dashboard from "./components/Dashboard.js";
 
 // modules
 import { Route, Routes } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth, db, logout } from ".//firebaseSetup.js";
 
 // styles
 import "./styles/styles.css";
 
 function App() {
+  const [user, loading, error] = useAuthState(auth);
   return (
     <div className="App">
      
-      <Header />
+      <Header user={user} />
       
       
 
@@ -30,11 +37,17 @@ function App() {
       <Routes>
         <Route path='/book/:bookId' element={<BookDetails />} />
         <Route path='/' element={<Homepage />} />
-        <Route path='/mybooks' element={<UserReadingList />} />
+        <Route path='/mybooks' element={<UserReadingList user={user} />} />
         <Route path='/genre/murder' element={<MurderBooks />} aria-label="Link to murder themed books" />
         <Route path='/genre/sci-fi' element={<SciFiBooks />} aria-label="Link to sci-fi themed books" />
         <Route path='/genre/fantasy' element={<FantasyBooks />} aria-label="Link to fantasy themed books" />
         <Route path='/genre/romance' element={<RomanceBooks />} aria-label="Link to romance themed books" />
+        
+        <Route exact path="/login" element={<Login />} aria-label="Link to email login" />
+        <Route exact path="/register" element={<Register />} />
+        <Route exact path="/reset" element={<Reset />} />
+        <Route exact path="/dashboard" element={<Dashboard />} />
+       
       </Routes>
 
       <Footer />
