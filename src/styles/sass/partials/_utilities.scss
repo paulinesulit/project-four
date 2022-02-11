@@ -5,8 +5,7 @@
     padding: 10px 20px;
     color: white;
         
-    &:hover,
-    &:focus {
+    &:hover {
       background-color: $murder-red;
       border: 1px solid $murder-red;
     }

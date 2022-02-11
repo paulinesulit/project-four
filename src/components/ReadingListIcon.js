@@ -22,7 +22,6 @@ const ReadingListIcon = (props) => {
     const unreadAddress = ref(database, `${props.user?.uid}/unreadReadingList`);
     const finishedAddress = ref(database, `${props.user?.uid}/finishedReadingList`);
     onValue(unreadAddress, (response) => {
-      console.log(response.val())
       if (response.val() === null) {
         setUnreadList([]);
       } else {
@@ -38,23 +37,23 @@ const ReadingListIcon = (props) => {
     },[])
   }, [database, props.user]);
 
-    return (
-<div>
-    <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faBook} className="bookIcon" aria-hidden="true"/>
-        <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
-        {unreadList.length}
-        </span>
-        </span>
-
+  return (
+    <div className="bookIconsDiv">
         <span className="fa-layers fa-fw">
-        <FontAwesomeIcon icon={faBookOpen} className="bookIcon"  aria-hidden="true"/>
-        <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
-        {readList.length}
+            <FontAwesomeIcon icon={faBook} className="bookIcon" aria-hidden="true"/>
+            <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
+            {unreadList.length}
+            </span>
+            </span>
+
+            <span className="fa-layers fa-fw">
+            <FontAwesomeIcon icon={faBookOpen} className="bookIcon"  aria-hidden="true"/>
+            <span className="fa-layers-counter" style={{ background: "Tomato" }} aria-hidden="true">
+            {readList.length}
+            </span>
         </span>
-    </span>
-</div>
-);
+    </div>
+    );
 };
 
 export default ReadingListIcon;

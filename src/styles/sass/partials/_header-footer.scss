@@ -22,7 +22,12 @@ header ul {
     align-items: center;
   }
 }
-
+.bookIcon:hover{
+  color: darkblue;
+}
+.bookIconsDiv {
+  text-align: center;
+}
 .readingListLink {
   a {
     font-size: 0.85rem;
@@ -84,7 +89,8 @@ footer {
 .loginRegisterHeader {
   display: flex;
   flex-direction: row;
+  margin-right: 70px;
   a {
-    padding: 0px 10px 10px 0px;
+    padding: 0px 60px 10px 10px;
   }
 }

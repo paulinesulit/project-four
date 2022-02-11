@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBook, faBookOpen } from "@fortawesome/free-solid-svg-icons";
+
 import ReadingListIcon from "./ReadingListIcon";
 
+import { logout } from "../firebaseSetup.js";
 const Header = (props) => {
   
   return (
@@ -28,15 +28,17 @@ const Header = (props) => {
                   to="/register"
                   aria-label="Click to register"
                 >Register</Link> </>
-              : <Link to="/dashboard" aria-label="click to go to user dashboard">Dashboard</Link>
+              : <><Link to="/dashboard" aria-label="click to go to user dashboard">Dashboard</Link>
+              <Link to="/" onClick={()=>{logout()}}>Logout</Link>
+              </>
             }
           </li>
           <li className="readingListLink">
-            <ReadingListIcon user={props.user} />
             <Link
               to="/mybooks"
               aria-label="Click to go to your reading list page"
             >
+            <ReadingListIcon user={props.user} /> 
               My Reading List
             </Link>
           </li>

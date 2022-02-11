@@ -86,9 +86,9 @@ const UserReadingList = () => {
   }, [readList.length, unreadList.length])
 
   const resetList = () => {
-    const finishedAddress = ref(database, "finishedReadingList");
+    const finishedAddress = ref(database, `${user?.uid}/finishedReadingList`);
     remove(finishedAddress);
-    const dbBookAddress = ref(database, "unreadReadingList");    
+    const dbBookAddress = ref(database, `${user?.uid}/unreadReadingList`);    
     remove(dbBookAddress);
   }
 

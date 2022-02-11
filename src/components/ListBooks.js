@@ -9,7 +9,7 @@ const ListBooks = (props) => {
       {props.listOfBooks.map((book) => {
         const title = book.volumeInfo.title;
         return (
-          <div key={book.id}>
+          <div className="bookDiv" key={book.id}>
             {book.volumeInfo.imageLinks === undefined ? null : (
               <li>
                 {book.volumeInfo.imageLinks === undefined ? null : (

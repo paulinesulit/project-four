@@ -275,6 +275,14 @@ header ul li {
           align-items: center;
 }
 
+.bookIcon:hover {
+  color: darkblue;
+}
+
+.bookIconsDiv {
+  text-align: center;
+}
+
 .readingListLink a {
   font-size: 0.85rem;
   font-weight: 600;
@@ -333,9 +341,10 @@ footer a:hover, footer a:focus {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-right: 70px;
 }
 .loginRegisterHeader a {
-  padding: 0px 10px 10px 0px;
+  padding: 0px 60px 10px 10px;
 }
 
 ul.genreLinks {
@@ -434,11 +443,6 @@ ul.genreLinks li img {
           align-items: flex-start;
   margin: 0 auto;
 }
-.listBooksDiv div {
-  width: calc(25% - 20px);
-  margin: 10px;
-  text-align: center;
-}
 .listBooksDiv li {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -450,6 +454,17 @@ ul.genreLinks li img {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+.bookDiv {
+  width: calc(25% - 20px);
+  margin: 10px;
+  text-align: center;
+}
+
+.addBookDiv {
+  margin: 0 auto;
+  width: 66%;
 }
 
 .listBooksImg {
@@ -693,7 +708,7 @@ h1 {
   padding: 10px 20px;
   color: white;
 }
-.addButton:hover, .addButton:focus {
+.addButton:hover {
   background-color: #FF1D25;
   border: 1px solid #FF1D25;
 }
