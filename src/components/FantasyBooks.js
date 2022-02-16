@@ -10,7 +10,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 
 const FantasyBooks = () => {
-  const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
+
   const [bookGenre, setBookGenre] = useState([]);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ const FantasyBooks = () => {
       dataResponse: "json",
       method: "GET",
       params: {
-        key: apiKey,
+        key: `${process.env.REACT_APP_API_KEY}`,
         q: "fantasy",
         printType: "books",
         maxResults: 10,

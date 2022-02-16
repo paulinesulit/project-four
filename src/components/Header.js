@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-// import { faBook, faBookOpen } from "@fortawesome/free-solid-svg-icons";
 import ReadingListIcon from "./ReadingListIcon";
 
 const Header = () => {
@@ -8,8 +6,14 @@ const Header = () => {
     <header>
       <nav className="wrapper">
         <ul>
-          <li className="logo" tabIndex='0'
-                role="tab" aria-selected="true" aria-controls="tabpanel-id" id="tab-id">
+          <li
+            className="logo"
+            tabIndex="0"
+            role="tab"
+            aria-selected="true"
+            aria-controls="tabpanel-id"
+            id="tab-id"
+          >
             <Link to="/" aria-label="Click to go back to the search">
               <img
                 src="/assets/page-turners-logo.png"

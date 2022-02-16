@@ -15,19 +15,13 @@ const SearchBooks = () => {
   const [userAuthorInput, setUserAuthorInput] = useState("");
   const [userTitleInput, setUserTitleInput] = useState("");
 
-  // useEffect(() => {
-  // }, [bookCounter]);
-
-  // const [ifError, setIfError] = useState(false);
-  const apiKey = "AIzaSyDISzpyy6ru9PcqSbd86HCj1hJaGHbtbq8";
-
   const buttonClickCall = () => {
     axios({
       url: "https://www.googleapis.com/books/v1/volumes",
       dataResponse: "json",
       method: "GET",
       params: {
-        key: apiKey,
+        key: `${process.env.REACT_APP_API_KEY}`,
         q: `${userAuthorInput}?${userTitleInput}`,
         printType: "books",
         maxResults: 20,
@@ -35,8 +29,6 @@ const SearchBooks = () => {
       },
     }).then((response) => {
       setAllBooks(response.data.items);
-      
-      // setIfError(false);
     });
   };
 
@@ -46,7 +38,7 @@ const SearchBooks = () => {
       dataResponse: "json",
       method: "GET",
       params: {
-        key: apiKey,
+        key: `${process.env.REACT_APP_API_KEY}`,
         q: `inauthor:${userAuthorInput}`,
         printType: "books",
         maxResults: 20,
@@ -55,12 +47,8 @@ const SearchBooks = () => {
     })
       .then((response) => {
         setAllBooks(response.data.items);
-      
-        // setIfError(false);
-       
       })
       .catch((error) => {
-      
         alert("Try different search queries");
       });
   };
@@ -71,7 +59,7 @@ const SearchBooks = () => {
       dataResponse: "json",
       method: "GET",
       params: {
-        key: apiKey,
+        key: `${process.env.REACT_APP_API_KEY}`,
         q: `intitle:${userTitleInput}`,
         printType: "books",
         maxResults: 20,
@@ -79,14 +67,9 @@ const SearchBooks = () => {
       },
     })
       .then((response) => {
-        
         setAllBooks(response.data.items);
-      
-        // setIfError(false);
-      
       })
       .catch((error) => {
-      
         // alert("Try different search queries");
       });
   };
@@ -95,17 +78,17 @@ const SearchBooks = () => {
   const handleInputAuthor = (event) => {
     setUserAuthorInput(event.target.value);
     if (event.target.value.length > 0) {
-      setSecondInputDisabled(true)
+      setSecondInputDisabled(true);
     } else {
-      setSecondInputDisabled(false)
+      setSecondInputDisabled(false);
     }
   };
   const handleInputTitle = (event) => {
     setUserTitleInput(event.target.value);
     if (event.target.value.length > 0) {
-      setFirstInputDisabled(true)
+      setFirstInputDisabled(true);
     } else {
-      setFirstInputDisabled(false)
+      setFirstInputDisabled(false);
     }
   };
 
@@ -131,7 +114,6 @@ const SearchBooks = () => {
     setBookCounter(bookCounter - 20);
     buttonClickCall();
   };
-
 
   return (
     <div>
@@ -170,7 +152,7 @@ const SearchBooks = () => {
         ) : allBooks.length > 0 ? (
           bookCounter === 0 ? (
             <button
-            className='nextBtn'
+              className="nextBtn"
               onClick={handleClickNext}
               aria-label="Go to the next page of books"
             >
@@ -180,7 +162,7 @@ const SearchBooks = () => {
           ) : (
             <div className="paginationButtons">
               <button
-              className='prevBtn'
+                className="prevBtn"
                 onClick={handleClickBack}
                 aria-label="Go to the previous page of books"
               >
@@ -188,7 +170,7 @@ const SearchBooks = () => {
                 Back
               </button>
               <button
-                className='nextBtn'
+                className="nextBtn"
                 onClick={handleClickNext}
                 aria-label="Go to the next page of books"
               >
