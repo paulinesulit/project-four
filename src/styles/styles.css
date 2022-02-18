@@ -344,7 +344,7 @@ footer a:hover, footer a:focus {
   margin-right: 70px;
 }
 .loginRegisterHeader a {
-  padding: 0px 60px 10px 10px;
+  padding: 0px 30px 10px 10px;
 }
 
 ul.genreLinks {
@@ -1064,6 +1064,17 @@ li {
     width: calc(80% - 20px);
     margin: auto;
   }
+
+  .loginRegisterHeader {
+    margin-right: 0;
+    padding-bottom: 20px;
+  }
+  .loginRegisterHeader a {
+    padding: 0;
+  }
+  .loginRegisterHeader a:first-of-type {
+    padding-right: 30px;
+  }
 }
 @media (max-width: 465px) {
   ul.genreBooks li {
@@ -1085,5 +1096,18 @@ li {
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;
+  }
+
+  .loginRegisterHeader {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 30px;
+  }
+  .loginRegisterHeader a {
+    padding: 0;
+    margin-bottom: 15px;
   }
 }

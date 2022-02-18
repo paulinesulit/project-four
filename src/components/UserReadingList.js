@@ -21,7 +21,7 @@ const UserReadingList = () => {
   const [userProgress, setUserProgress] = useState(0)
 
   const database = getDatabase(BooksProject);
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   useEffect(() => {
     const unreadAddress = ref(database, `${user?.uid}/unreadReadingList`);
@@ -47,7 +47,7 @@ const UserReadingList = () => {
       stopUnreadSubFunction();
     }
 
-  }, [database]);
+  }, [user?.uid, database]);
 
   const handleRemove = (book) => {
     const database = getDatabase(BooksProject);

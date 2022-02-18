@@ -18,13 +18,13 @@ import Dashboard from "./components/Dashboard.js";
 // modules
 import { Route, Routes } from "react-router-dom";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth, db, logout } from ".//firebaseSetup.js";
+import { auth } from ".//firebaseSetup.js";
 
 // styles
 import "./styles/styles.css";
 
 function App() {
-  const [user, loading, error] = useAuthState(auth);
+  const [ user ] = useAuthState(auth);
   return (
     <div className="App">
      

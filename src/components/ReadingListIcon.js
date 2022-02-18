@@ -16,9 +16,10 @@ const ReadingListIcon = (props) => {
   const [readList, setReadList] = useState([]);
 
   const database = getDatabase(BooksProject);
-  const [user, loading, error] = useAuthState(auth);  
+  const [user] = useAuthState(auth);  
 
   useEffect(() => {
+    console.log(user);
     const unreadAddress = ref(database, `${props.user?.uid}/unreadReadingList`);
     const finishedAddress = ref(database, `${props.user?.uid}/finishedReadingList`);
     onValue(unreadAddress, (response) => {
@@ -35,7 +36,7 @@ const ReadingListIcon = (props) => {
         setReadList(Object.entries(response.val()));
       }
     },[])
-  }, [database, props.user]);
+  }, [database, props.user, user]);
 
   return (
     <div className="bookIconsDiv">

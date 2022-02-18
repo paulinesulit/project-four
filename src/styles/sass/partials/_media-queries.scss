@@ -88,6 +88,16 @@
       margin: auto;
     }
   }
+  .loginRegisterHeader {
+    margin-right: 0;
+    padding-bottom: 20px;
+    a {
+      padding: 0;
+    }
+    a:first-of-type {
+      padding-right: 30px;
+    }
+  }
 }
 
 @media (max-width: 465px) {
@@ -109,5 +119,14 @@
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;
+  }
+  .loginRegisterHeader {
+    flex-direction: column;
+    margin-right: 0;
+    margin-bottom: 30px;
+    a {
+      padding: 0;
+      margin-bottom: 15px;
+    }
   }
 }

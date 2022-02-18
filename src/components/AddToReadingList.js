@@ -7,7 +7,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useState } from "react";
 
 const AddToReadingList = (props) => {
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
   const [buttonDisabled, setButtonDisabled] = useState(false);
   const database = getDatabase(BooksProject);
   const unreadAddress = ref(database, `${user?.uid}/unreadReadingList`);

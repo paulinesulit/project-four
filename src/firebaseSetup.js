@@ -17,7 +17,7 @@ import {
   where,
   addDoc,
 } from "firebase/firestore";
-import { getDatabase } from "firebase/database";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 

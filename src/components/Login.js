@@ -1,4 +1,4 @@
-import { Router, Route, Routes } from "react-router-dom";
+// import { Router, Route, Routes } from "react-router-dom";
 import {useEffect, useState} from "react";
 import { auth, logInWithEmailAndPassword, signInWithGoogle  } from "../firebaseSetup.js";
 import { useAuthState } from "react-firebase-hooks/auth";
@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Login = () => {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [user, loading, error] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -16,7 +16,7 @@ const Login = () => {
             return;
         }
         if (user) navigate("/");
-    }, [user, loading]);
+    }, [user, loading, navigate]);
 
     return(
         <div className="login">

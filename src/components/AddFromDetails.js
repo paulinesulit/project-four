@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const AddFromDetails = (props) => {
     const database = getDatabase(BooksProject);
-    const [user, loading, error] = useAuthState(auth);
+    const [ user ] = useAuthState(auth);
     const [buttonDisabled, setButtonDisabled] = useState(false);
     const unreadAddress = ref(database, `${user?.uid}/unreadReadingList`);
 

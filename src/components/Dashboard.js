@@ -5,26 +5,27 @@ import { auth, db, logout } from "../firebaseSetup.js";
 import { query, collection, getDocs, where } from "firebase/firestore";
 
 const Dashboard = () => {
-    const [user, loading, error] = useAuthState(auth);
-    const [name, setName] = useState("");
+    const [user, loading] = useAuthState(auth);
+    const [ name, setName ] = useState("");
     const navigate = useNavigate();
-    const fetchUserName = async () => {
-        try {
-            const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-            const doc = await getDocs(q);
-            // const data = await doc.docs[0].data();
-            // setName(data.name);
-            const userName = user?.displayName;
-        } catch (error) {
-            console.log(error);
-            alert("An error has occured grabbing user information");
-        }
-    };
+    
     useEffect(()=>{
         if (loading) return;
         if (!user) return navigate("/");
+        const fetchUserName = async () => {
+            try {
+                const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+                const doc = await getDocs(q);
+                const data = await doc.docs[0].data();
+                setName(data.name);
+                console.log(name);
+            } catch (error) {
+                console.log(error);
+                alert("An error has occured grabbing user information");
+            }
+        };
         fetchUserName();
-    }, [user, loading]);
+    }, [name, loading, user, navigate]);
 
     return (
         <div className="dashboard">
