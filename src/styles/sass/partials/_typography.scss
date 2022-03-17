@@ -1,13 +1,14 @@
-$murder-red: #FF1D25;
-$blue: #3FA9F5;
-
 body, html {
     font-size: 125%;
 }
 
-h1, h2, h3, label {
+h1, h2, h3, h4, label {
     font-family: 'Poppins', sans-serif;
     font-weight: 600;
+}
+
+h2 {
+  margin: 10px;
 }
 
 .banner {
@@ -31,12 +32,12 @@ h1, h2, h3, label {
 p, a, button, input {
     font-family: 'Poppins', sans-serif;
     font-weight: 300;
+    font-size: 0.8rem;
 }
 
 a {
     text-decoration: none;
     color: black;
-    
     &:hover,
     &:focus {
         color: $blue;

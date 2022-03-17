@@ -5,17 +5,30 @@
 }
 
 @media (max-width: 1050px) {
-  .listBooksDiv div {
-    width: calc(50% - 20px);
+  .listBooksDiv {
+    margin: 0;
+    li {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      
+      .imgContainer {
+        justify-content: center;
+        padding: 10px;
+        img {
+          width: 150px;
+        }
+      }
+      .textContainer {
+        text-align: center;
+        width: 100%;
+      }
+    }
   }
+  
 
   .readingList {
     flex-wrap: wrap;
-
-    div {
-      width: calc(50% - 20px);
-      margin: auto;
-    }
   }
 }
 
@@ -37,7 +50,25 @@
   ul.genreBooks li {
     width: calc(100% / 2 - 20px);
   }
-
+  h2 {
+    text-align: center;
+  }
+  .bookDetails {
+    flex-direction: column;
+    text-align: center;
+    .imgContainer {
+      width: 95%;
+      img {
+        width: 30%;
+      }
+    }
+    .textContainer {
+      width: 95%;
+      text-align: center;
+      padding: 10px;
+      margin-top: 0;
+    }
+  }
 }
 
 @media (max-width: 680px) {

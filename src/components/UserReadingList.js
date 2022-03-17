@@ -91,68 +91,81 @@ const UserReadingList = () => {
   }
 
   return (
-      <div className='wrapper progressBarButton'>
-        <p aria-label="The percentage of books you have read on your reading list">Progress: {userProgress}%</p>
-        <ProgressBar animated now={userProgress} />
+    <div className="wrapper progressBarButton">
+      <p aria-label="The percentage of books you have read on your reading list">
+        Progress: {userProgress}%
+      </p>
+      <ProgressBar animated now={userProgress} />
 
-        <button onClick={resetList} aria-label="Clear books from my reading list">Clear My Reading List</button>
-    
+      <button onClick={resetList} aria-label="Clear books from my reading list">
+        Clear My Reading List
+      </button>
 
-      <ul className="readingList wrapper">
-        
-        {unreadList.map((book) => {
-          return (
-            <div className="unreadList">
-              <li key={book[1].id}>
-                {book[1].jacket === undefined ? null : (
-                  <img src={book[1].jacket} alt={book[1].title} />
-                )}
-                <h2>{book[1].title}</h2>
-                {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-                <button aria-label="Remove book from reading list"
-                  onClick={() => {
-                    handleRemove(book[0]);
-                  }}
-                >
-                  Remove
-                </button>
-                <button aria-label="List book as read on your reading list"
-                  onClick={() => {
-                    handleRead(book[0]);
-                  }}
-                >
-                  Read
-                </button>
-              </li>
-          </div>
-          );
-        })}
+      <ul className="wrapper">
+        <h2>Unread Books:</h2>
+        <div className="readingList">
+          {unreadList.map((book) => {
+            return (
+              <div className="unreadList">
+                <li key={book[1].id}>
+                  {book[1].jacket === undefined ? null : (
+                    <img src={book[1].jacket} alt={book[1].title} />
+                  )}
+                  <h2>{book[1].title}</h2>
+                  {book[1].author === undefined ? null : (
+                    <h3>{book[1].author[0]}</h3>
+                  )}
+                  <button
+                    aria-label="Remove book from reading list"
+                    onClick={() => {
+                      handleRemove(book[0]);
+                    }}
+                  >
+                    Remove
+                  </button>
+                  <button
+                    aria-label="List book as read on your reading list"
+                    onClick={() => {
+                      handleRead(book[0]);
+                    }}
+                  >
+                    Read
+                  </button>
+                </li>
+              </div>
+            );
+          })}
+        </div>
       </ul>
-      <ul className="readingList wrapper">
-        {
-        readList.map((book) => {
-          return (
-           <div className="readList">
-              <li className="readBook" key={book}>
-                {book[1].jacket === undefined ? null : (
-                  <img src={book[1].jacket} alt={book[1].title} />
-                )}
-                <h2>{book[1].title}</h2>
-                {book[1].author === undefined ? null : <h3>{book[1].author[0]}</h3>}
-                <button  aria-label="Remove read book from list"
-                  onClick={() => {
-                    handleRemoveRead(book[0]);
-                  }}
-                >
-                  Remove
-                </button>
-              </li>
-            </div> 
-          );
-        })}
+      <ul className="wrapper">
+        <h2>Read Books:</h2>
+        <div className="readingList">
+          {readList.map((book) => {
+            return (
+              <div className="readList">
+                <li className="readBook" key={book}>
+                  {book[1].jacket === undefined ? null : (
+                    <img src={book[1].jacket} alt={book[1].title} />
+                  )}
+                  <h2>{book[1].title}</h2>
+                  {book[1].author === undefined ? null : (
+                    <h3>{book[1].author[0]}</h3>
+                  )}
+                  <button
+                    aria-label="Remove read book from list"
+                    onClick={() => {
+                      handleRemoveRead(book[0]);
+                    }}
+                  >
+                    Remove
+                  </button>
+                </li>
+              </div>
+            );
+          })}
+        </div>
       </ul>
       <ScrollTop />
-      
     </div>
   );
 };

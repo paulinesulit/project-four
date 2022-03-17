@@ -24,12 +24,16 @@ const SearchBooks = () => {
         key: `${process.env.REACT_APP_API_KEY}`,
         q: `${userAuthorInput}?${userTitleInput}`,
         printType: "books",
-        maxResults: 20,
+        maxResults: 10,
         startIndex: bookCounter,
       },
-    }).then((response) => {
-      setAllBooks(response.data.items);
-    });
+    })
+      .then((response) => {
+        setAllBooks(response.data.items);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const getBooksAuthor = (userAuthorInput) => {
@@ -41,7 +45,7 @@ const SearchBooks = () => {
         key: `${process.env.REACT_APP_API_KEY}`,
         q: `inauthor:${userAuthorInput}`,
         printType: "books",
-        maxResults: 20,
+        maxResults: 10,
         startIndex: bookCounter,
       },
     })
@@ -49,7 +53,7 @@ const SearchBooks = () => {
         setAllBooks(response.data.items);
       })
       .catch((error) => {
-        alert("Try different search queries");
+        console.log(error);
       });
   };
 
@@ -62,7 +66,7 @@ const SearchBooks = () => {
         key: `${process.env.REACT_APP_API_KEY}`,
         q: `intitle:${userTitleInput}`,
         printType: "books",
-        maxResults: 20,
+        maxResults: 10,
         startIndex: bookCounter,
       },
     })
@@ -70,7 +74,7 @@ const SearchBooks = () => {
         setAllBooks(response.data.items);
       })
       .catch((error) => {
-        // alert("Try different search queries");
+        console.log(error);
       });
   };
 
@@ -101,18 +105,26 @@ const SearchBooks = () => {
       getBooksAuthor(userAuthorInput);
     }
     setBookCounter(0);
-    // setUserInput("");
-    // setCategoryInput("");
   };
 
   const handleClickNext = () => {
-    setBookCounter(bookCounter + 20);
+    setBookCounter(bookCounter + 10);
     buttonClickCall();
+    window.scrollTo({
+      top: 600,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   const handleClickBack = () => {
-    setBookCounter(bookCounter - 20);
+    setBookCounter(bookCounter - 10);
     buttonClickCall();
+    window.scrollTo({
+      top: 600,
+      left: 0,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -167,7 +179,7 @@ const SearchBooks = () => {
                 aria-label="Go to the previous page of books"
               >
                 {" "}
-                Back
+                &lt; Back
               </button>
               <button
                 className="nextBtn"
@@ -175,7 +187,7 @@ const SearchBooks = () => {
                 aria-label="Go to the next page of books"
               >
                 {" "}
-                Next
+                Next &gt;
               </button>
             </div>
           )
