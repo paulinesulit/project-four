@@ -34,7 +34,7 @@ const BookDetails = () => {
 
   return (
     <div className="wrapper">
-      <h2>{book.title}</h2>
+      {loading ? <div className="loader"></div> : <h2>{book.title}</h2>}
       <div className="bookDetails">
         <div className="imgContainer">
           {book.imageLinks === undefined ? null : (
