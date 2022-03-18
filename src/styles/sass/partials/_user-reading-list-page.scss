@@ -3,9 +3,15 @@
     justify-content: center;
     flex-direction: column;
     text-align: center;
+    padding: 10px;
     h2 {
       font-size: 1.5rem;
       padding: 20px;
+    }
+    .progressAndClear {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
     }
 }
 
@@ -15,7 +21,7 @@
     background-color: $murder-red;
     padding: 10px 20px;
     color: white;
-        
+    border-radius: 8px;
     &:hover,
     &:focus {
       background-color: $blue;
@@ -40,13 +46,14 @@
       }
 }
 
+
 .readingList {
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
   margin: 10px;
-  .unreadList {
+  .unreadList, .readList {
     width: calc(100% / 4);
     
   }
@@ -68,11 +75,12 @@
   h3 {
     font-weight: normal;
     font-size: 0.9rem;
-    padding: 5px;
   }
 
   button {
-    border-radius: 8px;
+    // border-radius: 8px;
+    border: 1px solid $blue;
+    background-color: $blue;
   }
 }
 

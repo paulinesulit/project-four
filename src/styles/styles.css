@@ -257,7 +257,7 @@ header ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  padding: 20px 0 40px 0;
+  padding: 20px 20px 40px 20px;
 }
 header ul li {
   display: -webkit-box;
@@ -542,10 +542,22 @@ footer a, footer p {
       -ms-flex-direction: column;
           flex-direction: column;
   text-align: center;
+  padding: 10px;
 }
 .progressBarButton h2 {
   font-size: 1.5rem;
   padding: 20px;
+}
+.progressBarButton .progressAndClear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
 }
 
 .progressBarButton button {
@@ -554,6 +566,7 @@ footer a, footer p {
   background-color: #FF1D25;
   padding: 10px 20px;
   color: white;
+  border-radius: 8px;
 }
 .progressBarButton button:hover, .progressBarButton button:focus {
   background-color: #3FA9F5;
@@ -591,7 +604,7 @@ footer a, footer p {
       flex-wrap: wrap;
   margin: 10px;
 }
-.readingList .unreadList {
+.readingList .unreadList, .readingList .readList {
   width: 25%;
 }
 .readingList li {
@@ -609,10 +622,10 @@ footer a, footer p {
 .readingList h3 {
   font-weight: normal;
   font-size: 0.9rem;
-  padding: 5px;
 }
 .readingList button {
-  border-radius: 8px;
+  border: 1px solid #3FA9F5;
+  background-color: #3FA9F5;
 }
 
 .readBook img {
@@ -674,7 +687,7 @@ h1 {
 .genreBooks li img {
   width: 175px;
   height: 200px;
-  margin: 10px;
+  margin: 0 auto;
 }
 .genreBooks li h2 {
   font-size: 20px;
@@ -689,7 +702,7 @@ h1 {
   margin: 5px;
 }
 .genreBooks li .addButton {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 
 .addButton {
@@ -903,6 +916,10 @@ li {
     padding: 10px;
     margin-top: 0;
   }
+
+  .readingList .unreadList, .readingList .readList {
+    width: 33.3333333333%;
+  }
 }
 @media (max-width: 680px) {
   header ul {
@@ -952,9 +969,8 @@ li {
     width: 100%;
   }
 
-  .readingList div {
-    width: calc(80% - 20px);
-    margin: auto;
+  .readingList .unreadList, .readingList .readList {
+    width: 50%;
   }
 }
 @media (max-width: 465px) {
@@ -977,5 +993,17 @@ li {
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;
+  }
+
+  .readingList .unreadList, .readingList .readList {
+    width: 100%;
+  }
+
+  .progressAndClear p {
+    width: 50%;
+  }
+  .progressAndClear button {
+    width: 50%;
+    padding: 5px;
   }
 }

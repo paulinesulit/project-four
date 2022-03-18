@@ -92,14 +92,18 @@ const UserReadingList = () => {
 
   return (
     <div className="wrapper progressBarButton">
-      <p aria-label="The percentage of books you have read on your reading list">
-        Progress: {userProgress}%
-      </p>
+      <div className="progressAndClear">
+        <p aria-label="The percentage of books you have read on your reading list">
+          Progress: {userProgress}%
+        </p>
+        <button
+          onClick={resetList}
+          aria-label="Clear books from my reading list"
+        >
+          Clear My Reading List
+        </button>
+      </div>
       <ProgressBar animated now={userProgress} />
-
-      <button onClick={resetList} aria-label="Clear books from my reading list">
-        Clear My Reading List
-      </button>
 
       <ul className="wrapper">
         <h2>Unread Books:</h2>
@@ -111,26 +115,36 @@ const UserReadingList = () => {
                   {book[1].jacket === undefined ? null : (
                     <img src={book[1].jacket} alt={book[1].title} />
                   )}
+                  <div className="buttons">
+                    <button
+                      aria-label="Remove book from reading list"
+                      onClick={() => {
+                        handleRemove(book[0]);
+                      }}
+                    >
+                      Remove
+                    </button>
+                    <button
+                      aria-label="List book as read on your reading list"
+                      onClick={() => {
+                        handleRead(book[0]);
+                      }}
+                    >
+                      Read
+                    </button>
+                  </div>
                   <h2>{book[1].title}</h2>
-                  {book[1].author === undefined ? null : (
-                    <h3>{book[1].author[0]}</h3>
-                  )}
-                  <button
-                    aria-label="Remove book from reading list"
-                    onClick={() => {
-                      handleRemove(book[0]);
-                    }}
-                  >
-                    Remove
-                  </button>
-                  <button
-                    aria-label="List book as read on your reading list"
-                    onClick={() => {
-                      handleRead(book[0]);
-                    }}
-                  >
-                    Read
-                  </button>
+
+                  <h3 className="listBooksAuthor">Author(s):</h3>
+                  {book[1].author === undefined
+                    ? null
+                    : book[1].author.map((authorNames, index) => {
+                        return (
+                          <h3 key={index} className="listBooksAuthor">
+                            {authorNames}
+                          </h3>
+                        );
+                      })}
                 </li>
               </div>
             );
@@ -147,18 +161,28 @@ const UserReadingList = () => {
                   {book[1].jacket === undefined ? null : (
                     <img src={book[1].jacket} alt={book[1].title} />
                   )}
+                  <div className="buttons">
+                    <button
+                      aria-label="Remove read book from list"
+                      onClick={() => {
+                        handleRemoveRead(book[0]);
+                      }}
+                    >
+                      Remove
+                    </button>
+                  </div>
                   <h2>{book[1].title}</h2>
-                  {book[1].author === undefined ? null : (
-                    <h3>{book[1].author[0]}</h3>
-                  )}
-                  <button
-                    aria-label="Remove read book from list"
-                    onClick={() => {
-                      handleRemoveRead(book[0]);
-                    }}
-                  >
-                    Remove
-                  </button>
+
+                  <h3 className="listBooksAuthor">Author(s):</h3>
+                  {book[1].author === undefined
+                    ? null
+                    : book[1].author.map((authorNames, index) => {
+                        return (
+                          <h3 key={index} className="listBooksAuthor">
+                            {authorNames}
+                          </h3>
+                        );
+                      })}
                 </li>
               </div>
             );
