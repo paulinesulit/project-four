@@ -12,6 +12,7 @@ import { useState, useEffect } from "react";
 const BookDetails = () => {
   const { bookId } = useParams();
   const [book, setBook] = useState({});
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios({
@@ -24,6 +25,7 @@ const BookDetails = () => {
     })
       .then((response) => {
         setBook(response.data.volumeInfo);
+        setLoading(false);
       })
       .catch((error) => {
         console.log(error);

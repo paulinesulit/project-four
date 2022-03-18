@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 const MurderBooks = () => {
   const [bookGenre, setBookGenre] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios({
@@ -25,6 +26,7 @@ const MurderBooks = () => {
       },
     }).then((response) => {
       setBookGenre(response.data.items);
+      setLoading(false);
     });
   }, []);
 
@@ -36,39 +38,48 @@ const MurderBooks = () => {
     <div className="wrapper">
       <h1>Murder books, you say?</h1>
       <ul className="genreBooks">
-        {bookGenre.map((murderBook) => {
-          const title = murderBook.volumeInfo.title;
-          return (
-            <li key={murderBook.id}>
-              {murderBook.volumeInfo.imageLinks === undefined ? null : (
-                <img
-                  src={murderBook.volumeInfo.imageLinks.thumbnail}
-                  alt={murderBook.volumeInfo.title}
-                />
-              )}
-              <h2>{title.substring(0, 30)}</h2>
-              {murderBook.volumeInfo.authors === undefined ? null : (
-                <h3>{murderBook.volumeInfo.authors[0]}</h3>
-              )}
-              {murderBook.volumeInfo.averageRating === undefined ? (
-                <h4>No rating available</h4>
-              ) : (
-                <h4>{`${murderBook.volumeInfo.averageRating} out of 5 stars`}</h4>
-              )}
-
-              <Link to={`/book/${murderBook.id}`}>
-                <p
-                  className="previewDetailLink"
-                  aria-label="Click to see book details"
-                >
-                  See book details
-                </p>
-              </Link>
-
-              <AddToReadingList object={murderBook} />
-            </li>
-          );
-        })}
+        {loading ? (
+          <div className="loader"></div>
+        ) : (
+          bookGenre.map((murderBook) => {
+            const title = murderBook.volumeInfo.title;
+            return (
+              <li key={murderBook.id}>
+                {murderBook.volumeInfo.imageLinks === undefined ? null : (
+                  <img
+                    src={murderBook.volumeInfo.imageLinks.thumbnail}
+                    alt={murderBook.volumeInfo.title}
+                  />
+                )}
+                <AddToReadingList object={murderBook} />
+                <Link to={`/book/${murderBook.id}`}>
+                  <p
+                    className="previewDetailLink"
+                    aria-label="Click to see book details"
+                  >
+                    See book details
+                  </p>
+                </Link>
+                <h2>{title.substring(0, 30)}</h2>
+                <h3 className="listBooksAuthor">Author(s):</h3>
+                {murderBook.volumeInfo.authors === undefined
+                  ? null
+                  : murderBook.volumeInfo.authors.map((author, index) => {
+                      return (
+                        <h3 key={index} className="listBooksAuthor">
+                          {author}
+                        </h3>
+                      );
+                    })}
+                {murderBook.volumeInfo.averageRating === undefined ? (
+                  <h4>No rating available</h4>
+                ) : (
+                  <h4>{`${murderBook.volumeInfo.averageRating} out of 5 stars`}</h4>
+                )}
+              </li>
+            );
+          })
+        )}
       </ul>
       <ScrollTop />
     </div>
