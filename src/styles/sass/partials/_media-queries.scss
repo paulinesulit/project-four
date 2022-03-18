@@ -69,6 +69,11 @@
       margin-top: 0;
     }
   }
+  .readingList {
+    .unreadList, .readList {
+      width: calc(100% / 3);
+    }
+  }
 }
 
 @media (max-width: 680px) {
@@ -113,10 +118,8 @@
   }
   
   .readingList {
-
-    div {
-      width: calc(80% - 20px);
-      margin: auto;
+    .unreadList, .readList {
+      width: calc(100% / 2);
     }
   }
 }
@@ -140,5 +143,19 @@
     font-size: 1.75rem;
     bottom: 5px;
     right: 5px;
+  }
+  .readingList {
+    .unreadList, .readList {
+      width: 100%;
+    }
+  }
+  .progressAndClear {
+    p {
+      width: 50%;
+    }
+    button {
+      width: 50%;
+      padding: 5px;
+    }
   }
 }
