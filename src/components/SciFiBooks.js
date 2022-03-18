@@ -11,6 +11,7 @@ import { Link } from "react-router-dom";
 
 const SciFiBooks = () => {
   const [bookGenre, setBookGenre] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios({
@@ -25,7 +26,7 @@ const SciFiBooks = () => {
       },
     }).then((response) => {
       setBookGenre(response.data.items);
-      // setIfError(false);
+      setLoading(false);
     });
   }, []);
 
@@ -37,39 +38,50 @@ const SciFiBooks = () => {
     <div className="wrapper">
       <h1>Sci-fi books, you say?</h1>
       <ul className="genreBooks">
-        {bookGenre.map((sciFiBook) => {
-          const title = sciFiBook.volumeInfo.title;
-          return (
-            <li key={sciFiBook.id}>
-              {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
-                <img
-                  src={sciFiBook.volumeInfo.imageLinks.thumbnail}
-                  alt={sciFiBook.volumeInfo.title}
-                />
-              )}
-              <h2>{title.substring(0, 30)}</h2>
-              {sciFiBook.volumeInfo.authors === undefined ? null : (
-                <h3>{sciFiBook.volumeInfo.authors[0]}</h3>
-              )}
-              {sciFiBook.volumeInfo.averageRating === undefined ? (
-                <h4>No rating available</h4>
-              ) : (
-                <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
-              )}
+        {loading ? (
+          <div className="loader"></div>
+        ) : (
+          bookGenre.map((sciFiBook) => {
+            const title = sciFiBook.volumeInfo.title;
+            return (
+              <li key={sciFiBook.id}>
+                {sciFiBook.volumeInfo.imageLinks === undefined ? null : (
+                  <img
+                    src={sciFiBook.volumeInfo.imageLinks.thumbnail}
+                    alt={sciFiBook.volumeInfo.title}
+                  />
+                )}
 
-              <Link to={`/book/${sciFiBook.id}`}>
-                <p
-                  className="previewDetailLink"
-                  aria-label="Click to see book details"
-                >
-                  See book details
-                </p>
-              </Link>
+                <AddToReadingList object={sciFiBook} />
+                <Link to={`/book/${sciFiBook.id}`}>
+                  <p
+                    className="previewDetailLink"
+                    aria-label="Click to see book details"
+                  >
+                    See book details
+                  </p>
+                </Link>
 
-              <AddToReadingList object={sciFiBook} />
-            </li>
-          );
-        })}
+                <h2>{title.substring(0, 30)}</h2>
+                <h3 className="listBooksAuthor">Author(s):</h3>
+                {sciFiBook.volumeInfo.authors === undefined
+                  ? null
+                  : sciFiBook.volumeInfo.authors.map((author, index) => {
+                      return (
+                        <h3 key={index} className="listBooksAuthor">
+                          {author}
+                        </h3>
+                      );
+                    })}
+                {sciFiBook.volumeInfo.averageRating === undefined ? (
+                  <h4>No rating available</h4>
+                ) : (
+                  <h4>{`${sciFiBook.volumeInfo.averageRating} out of 5 stars`}</h4>
+                )}
+              </li>
+            );
+          })
+        )}
       </ul>
       <ScrollTop />
     </div>

@@ -23,17 +23,20 @@
 
 .addFromBtn{
     margin: 10px auto;
-    border: 1px solid $murder-red;
-    background-color: $murder-red;
+    border: 1px solid $blue;
+    background-color: $blue;
     padding: 10px 20px;
     color: white;
     border-radius: 8px; 
     &:hover,
     &:focus {
-      background-color: darken($murder-red, 12);
+      background-color: darken($blue, 12);
     }
 }
 
 .readReview{
-    color:$murder-red;
+    color:$blue;
+    &:hover, &:focus {
+        color: darken($blue, 12);
+    }
 }
