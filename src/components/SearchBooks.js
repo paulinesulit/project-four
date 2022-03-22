@@ -105,6 +105,10 @@ const SearchBooks = () => {
       getBooksAuthor(userAuthorInput);
     }
     setBookCounter(0);
+    setUserTitleInput("");
+    setUserAuthorInput("");
+    setFirstInputDisabled(false);
+    setSecondInputDisabled(false);
   };
 
   const handleClickNext = () => {
