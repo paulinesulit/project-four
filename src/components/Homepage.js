@@ -1,13 +1,28 @@
 // Homepage.js
 
 // components
-
 import GenreLinks from "./GenreLinks.js";
 import SearchBooks from "./SearchBooks.js";
+// import Login from "./Login.js";
+
+// modules
+import { useState, useEffect } from "react";
+import BooksProject from "../firebaseSetup.js";
 
 const Homepage = () => {
+  // const [user, setUser] = useState(null);
+
+  // useEffect(() => {
+  //   BooksProject.auth().onAuthStateChanged((user) => {
+  //     setUser(user);
+  //   });
+  // }, []);
+
+  // console.log(user);
+
   return (
     <main>
+      {/* <Login /> */}
       <section className="wrapper banner">
         <h1>Welcome to Page Turners!</h1>
         <p className="homepageQuote"> Let others pride themselves about how many pages they have written; I'd rather boast about the ones I've read.
